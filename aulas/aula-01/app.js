@@ -6,6 +6,7 @@
  uma linha
 */
 
+
 let age = 19
 let myName = 'Guilherme'
 console.log(age, myName)
