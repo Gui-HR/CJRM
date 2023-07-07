@@ -35,6 +35,7 @@ const newEmail = email.replace('pedrin_rei_delas', 'pieck.finger')
 console.log(newEmail)
 */
 
+/* 
 const radius = 10
 const pi = 3.14
 
@@ -42,4 +43,10 @@ const area = pi * radius ** 2
 console.log(area)
 
 console.log(5 % 2)
+*/
 
+const comecoDaFrase = 'Morango doce'
+const meioDaFrase = 'é gosotoso'
+const finalDaFrase = 'melhor do que abacate'
+const fraseCompleta = comecoDaFrase + ' ' + meioDaFrase  + ', ' + finalDaFrase
+console.log(fraseCompleta)

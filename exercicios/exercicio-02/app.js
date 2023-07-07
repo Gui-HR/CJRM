@@ -1,4 +1,4 @@
-/*
+/* FEITO
 01 - No index.html deste diretório (exercicio-02):
 
 - Declare uma marcação HTML;
@@ -8,19 +8,20 @@
 - E linke este arquivo, app.js, antes do fechamento da tag body.
 */
 
-/*
+/* FEITO
 02 - Inicie o seu servidor local e abra o console do browser.
 */
 
-/*
+/* FEITO
 03 - Exiba a string 'Grandes poderes trazem grandes responsabilidades.' no console do browser.
 
 Utilize os espaços entre os comentários abaixo para executar os códigos dos exercícios. Inclusive este.
 */
 
+const frase = 'Grandes poderes trazem grandes responsabilidades'
+// console.log(frase)
 
-
-/*
+/* FEITO
 04 - Comente o console.log acima, e:
 
 - Armazene a palavra 'Tom' em uma constante "tom";
@@ -30,9 +31,13 @@ Utilize os espaços entre os comentários abaixo para executar os códigos dos e
 - Exiba a "myFavoriteTom" no console do browser.
 */
 
+const tom = 'Tom'
+const firsTom = 'Hanks'
+const secondTom = 'Cruise'
+const myFavoriteTom = `${tom} ${secondTom}`
+// console.log(myFavoriteTom)
 
-
-/*
+/* FEITO
 05 - Comente o console.log acima, e:
 
 - Armazene a palavra 'JavaScript' em uma constante "programmingLanguage";
@@ -41,9 +46,11 @@ Utilize os espaços entre os comentários abaixo para executar os códigos dos e
 - Exiba a "js" no console do browser;
 */
 
+const programmingLanguage = 'JavaScript'
+const js = programmingLanguage.slice(0,1) + programmingLanguage.slice(4, 5)
+// console.log(js)
 
-
-/*
+/* FEITO
 06 - Comente o console.log acima, e,
 
 - Armazene, em uma constante "mdn", a junção das letras iniciais das 3 palavras que a constante "mozilla" armazena;
@@ -52,16 +59,18 @@ Utilize os espaços entre os comentários abaixo para executar os códigos dos e
 */
 
 const mozilla = 'Mozilla Developer Network'
+const mdn = mozilla.slice(0,1) + mozilla.slice(8, 9) + mozilla.slice(18, 19)
+// console.log(mdn)
 
-/*
+/* FEITO
 07 - Comente o console.log acima, e,
 
 - Exiba no console do browser a quantidade de caracteres que a constante "programmingLanguage" possui;
 */
 
+// console.log(programmingLanguage.length)
 
-
-/*
+/* FEITO
 08 - Comente o console.log acima, e,
 
 - Exiba no console a última letra da string que a "randomWord" (abaixo) armazena, mas com a condição a seguir;
@@ -69,9 +78,11 @@ const mozilla = 'Mozilla Developer Network'
 - Dica: utilize a propriedade ".length".
 */
 
-let randomWord = 'Araponga'
+let randomWord = 'Churume'
+const lastLetter = randomWord[randomWord.length - 1]
+// console.log(lastLetter)
 
-/*
+/* FEITO
 09 - Comente o console.log acima, e,
 
 - Exiba, no console, a string que "summerMessage" (abaixo) armazena, mas com todas as letras minúsculas;
@@ -80,8 +91,10 @@ let randomWord = 'Araponga'
 */
 
 const summerMessage = 'O VERÃO CHEGA NESTE FIM DE SEMANA'
+const lowerMessage = summerMessage.toLowerCase()
+// console.log(lowerMessage)
 
-/*
+/* FEITO
 10 - Comente o console.log acima, e,
 
 - Exiba, no console, a string que "winterMessage" (abaixo) armazena, mas com todas as letras maiúsculas;
@@ -90,24 +103,28 @@ const summerMessage = 'O VERÃO CHEGA NESTE FIM DE SEMANA'
 */
 
 const winterMessage = 'o inverno está chegando'
+const upperMessage = winterMessage.toUpperCase()
+// console.log(upperMessage)
 
-/*
+/* FEITO
 11 - Comente o console.log acima, e,
 
 - Exiba, no console, o index do caractere "v" da "winterMessage";
 */
 
+const winterMessageLetterV = winterMessage[winterMessage.indexOf('v')]
+// console.log(winterMessageLetterV)
 
-
-/*
+/* FEITO
 12 - Comente o console.log acima, e,
 
 - Exiba, no console, o index da última ocorrência do caractere "n" da "winterMessage".
 */
 
+const lastN = winterMessage.lastIndexOf('n')
+console.log(lastN)
 
-
-/*
+/* FEITO
 13 - Comente o console.log acima, e,
 
 - Após a const "harryPotterAuthor" (abaixo), exiba no console a parte "J.K." da string "harryPotterAuthor";
@@ -115,6 +132,7 @@ const winterMessage = 'o inverno está chegando'
 */
 
 const harryPotterAuthor = 'J.K. Rowling'
+
 
 /*
 14 - Comente o console.log acima, e,
