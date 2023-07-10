@@ -112,7 +112,7 @@ const upperMessage = winterMessage.toUpperCase()
 - Exiba, no console, o index do caractere "v" da "winterMessage";
 */
 
-const winterMessageLetterV = winterMessage[winterMessage.indexOf('v')]
+const winterMessageLetterV = winterMessage.indexOf('v')
 // console.log(winterMessageLetterV)
 
 /* FEITO
@@ -122,7 +122,7 @@ const winterMessageLetterV = winterMessage[winterMessage.indexOf('v')]
 */
 
 const lastN = winterMessage.lastIndexOf('n')
-console.log(lastN)
+// console.log(lastN)
 
 /* FEITO
 13 - Comente o console.log acima, e,
@@ -132,9 +132,10 @@ console.log(lastN)
 */
 
 const harryPotterAuthor = 'J.K. Rowling'
+const JK = harryPotterAuthor.slice(0, 4)
+// console.log(JK)
 
-
-/*
+/* FEITO
 14 - Comente o console.log acima, e,
 
 - Após a const "bestMovie" (abaixo), declare uma constante "realBestMovie";
@@ -143,17 +144,20 @@ const harryPotterAuthor = 'J.K. Rowling'
 */
 
 const bestMovie = 'E o Oscar de melhor filme vai para: "La la land"!'
+const realBestMovie = bestMovie.replace('La la land', 'Moonlight')
+// console.log(realBestMovie)
 
-/*
+/* FEITO
 15 - Comente o console.log acima, e,
 
 - Abaixo deste comentário, armazene o resto de 10 dividido por 3 em uma constante "reminder";
 - Exiba a reminder no console. O resultado deve ser 1;
 */
 
+const reminder = 10 % 3
+// console.log(reminder)
 
-
-/*
+/* FEITO
 16 - Comente o console.log acima, e,
 
 - Abaixo da let "episodes", incremente o valor dela em 1;
@@ -162,8 +166,10 @@ const bestMovie = 'E o Oscar de melhor filme vai para: "La la land"!'
 */
 
 let episodes = 6
+episodes ++
+// console.log(episodes)
 
-/*
+/* FEITO
 17 - Comente o console.log acima, e,
 
 - Decremente a let "episodes" em 1;
@@ -171,18 +177,21 @@ let episodes = 6
 - O valor exibido no console deve ser 6.
 */
 
+episodes --
+// console.log(episodes)
 
-
-/*
+/* FEITO
 18 - Comente o console.log acima, e,
 
 - Utilize o operador addition assignment para atualizar o valor da let "episodes" para 10;
 - Após a atribuição, exiba a let "episodes" no console.
 */
 
+episodes += 4
+// console.log(episodes)
 
 
-/*
+/* FEITO
 19 - Comente o console.log acima, e,
 
 - Abaixo deste comentário, armazene a string 'O nº de episódios é: NUMERO_DE_EPISÓDIOS' em uma constante "allEpisodes";
@@ -190,9 +199,10 @@ let episodes = 6
 - Exiba a "allEpisodes" no console.
 */
 
+const allEpisodes = `O nº de episodios é: ${episodes}`
+// console.log(allEpisodes)
 
-
-/*
+/* FEITO
 20 - Comente o console.log acima, e,
 
 - Descomente a const "bookMessage" e o console.log abaixo;
@@ -201,10 +211,10 @@ let episodes = 6
 - Não use template strings.
 */
 
-// const bookMessage = ''O Conto da Aia' é um dos livros mais vendidos da década.'
+const bookMessage = '\'O Conto da Aia\' é um dos livros mais vendidos da década.'
 // console.log(bookMessage)
 
-/*
+/* FEITO
 21 - Comente o console.log acima (e a const bookMessage caso não tenha descoberto a resolução), e,
 
 - Após a const "name" (abaixo), declare uma let "newName";
@@ -215,9 +225,11 @@ let episodes = 6
 - Exiba a "newName" no console;
 */
 
-const name = 'walter white'
+const nameW = 'walter white'
+let newName = (nameW.replace('w', 'W')).replace('w','W')
+// console.log(newName)
 
-/*
+/* FEITO
 22 - Comente o console.log acima, e,
 
 - Atribua à "newName" uma template string;
@@ -226,3 +238,6 @@ const name = 'walter white'
 - Não modifique a string da const "name";
 - Exiba a "newName" no console;
 */
+
+newName = `${nameW[0].toUpperCase()}${nameW.slice(1,6)} ${nameW[7].toUpperCase()}${nameW.slice(8)}`
+console.log(newName)
