@@ -78,7 +78,7 @@ let dogNames = maleDogNames.concat(femaleDogNames)
 - O resultado deve ser: "nome1, nome2, nome3, nome4".
 */
 
-// console.log(dogNames.join(', ')
+// console.log(dogNames.join(', ')) 
 
 /* FEITO
 08 - Comente o console.log acima e:
@@ -155,4 +155,4 @@ já tem, mais 4;
 
 let oddNumbers = [3, 5, 7]
 oddNumbers[1] += 4
-console.log(oddNumbers[1] ** 3)
+// console.log(oddNumbers[1] ** 3)
