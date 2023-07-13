@@ -1,4 +1,4 @@
-/*
+/* FEITo
   01 - Suba o seu servidor local e:
 
   - Armazene em uma constante "my3FavoriteTVShows" suas 3 séries favoritas;
@@ -13,18 +13,20 @@
   "Minhas 3 séries favoritas são: SÉRIE_01, SÉRIE_02 e SÉRIE_03."
 */
 
+const my3FavoriteAnimes = ['Summer Time Rendering', 'Bungou Stray Dogs', 'Boku no Hero']
+const sentence = `Meus 3 animes favoritos são: ${my3FavoriteAnimes[my3FavoriteAnimes.indexOf('Summer Time Rendering')]}, ${my3FavoriteAnimes[my3FavoriteAnimes.indexOf('Bungou Stray Dogs')]} e ${my3FavoriteAnimes[my3FavoriteAnimes.indexOf('Boku no Hero')]}.`
+// console.log(sentence)
 
-
-/*
-  02 - Comente o console.log() acima e:
+/* FEITO
+02 - Comente o console.log() acima e:
 
   - Exiba no console um boolean indicando se o array de séries que você criou  
     possui 3 itens.
 */
 
+// console.log(my3FavoriteAnimes.length == 3)
 
-
-/*
+/* FEITO
   03 - Comente o console.log() acima e:
 
   - Após a constante abaixo, armazene em uma constante "isRandomTVShowIncluded"  
@@ -35,8 +37,10 @@
 */
 
 const randomTVShow = 'Watchmen'
+const isRandomTVShowIncluded = my3FavoriteAnimes.includes(randomTVShow)
+// console.log(isRandomTVShowIncluded)
 
-/*
+/* FEITO
   04 - Comente o console.log() acima e:
 
   - Armazene a frase abaixo em uma constante "typeSentence", substituindo  
@@ -47,9 +51,10 @@ const randomTVShow = 'Watchmen'
   "O tipo de dado que a const "isRandomTVShowIncluded" armazena é: TIPO_DE_DADO."
 */
 
+const typeSentence = `O tipo de dado que a const "isRandomTVShowIncluded" armazena é: ${typeof(isRandomTVShowIncluded)}.`
+// console.log(typeSentence)
 
-
-/*
+/* FEITO
   05 - Comente o console.log() acima e:
 
   - Exiba a frase abaixo no console, substituindo "NÚMERO_DE_CARACTERES" por 39  
@@ -63,9 +68,12 @@ const randomTVShow = 'Watchmen'
   caracteres? BOOLEAN."
 */
 
+const numberOfCaracters = 39
+const phrase = 'A string que a "typeSentence" armazena tem mais de NÚMERO_DE_CARACTERES caracteres? BOOLEAN.'
+const boolean = String(numberOfCaracters < phrase.length).replace('t','T')
+// console.log(`A string que a "typeSentence" armazena tem mais de ${numberOfCaracters} caracteres? ${boolean}.`)
 
-
-/*
+/* FEITO
   06 - Comente o console.log() acima e:
 
   - Após a constante "falsyValues", exiba no console a frase abaixo,  
@@ -76,6 +84,8 @@ const randomTVShow = 'Watchmen'
 */
 
 const falsyValues = [0, "", false, '', ``, null, undefined, NaN]
+console.log(`Todos os ${falsyValues.length} itens do array "falsyValues" são falsy. Inclusive o  
+${falsyValues[2]}.`)
 
 /*
   07 - Comente o console.log() acima e:
