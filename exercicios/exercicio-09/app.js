@@ -12,10 +12,18 @@
   - Converta a função abaixo em uma arrow function e utilize-a para exibir um  
     valor no console.
 */
+console.log('Exercicio 01 \n')
 
-function convertToString (value) {
-  return String(value)
-}
+// function convertToString (value) {
+//   return String(value)
+// }
+
+const convertToString = value => String(value)
+const number = 35
+const numberToString = convertToString(number)
+
+console.log(number, typeof number, numberToString, typeof numberToString)
+console.log('--------------------------')
 
 /*
   02
@@ -23,6 +31,13 @@ function convertToString (value) {
   - Crie uma função que retorne a quantidade de caracteres que uma string  
     recebida por parâmetro possui.
 */
+console.log('Exercicio 02 \n')
+
+const stringLength = string => string.length
+
+console.log(stringLength('Aroungueijo'))
+console.log('--------------------------')
+
 
 /*
   03
@@ -33,6 +48,13 @@ function convertToString (value) {
 
   "CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO"
 */
+console.log('Exercicio 03 \n')
+
+const lowerCase = string => string.toLowerCase()
+const sentence = 'CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO'
+
+console.log(lowerCase(sentence))
+console.log('--------------------------')
 
 /*
   04
@@ -135,7 +157,7 @@ for (let i = 0; i < letters.length; i++) {
   </article>
 */
 
-const section = document.querySelector('[data-js="section"]')
+// const section = document.querySelector('[data-js="section"]')
 
 const review = [
   'Eu sempre adorei o filme e quando descobri que tinha o livro também fiquei doido. Demorei um pouco mas acabei comprando e finalmente li \o/.',
@@ -146,7 +168,7 @@ const review = [
 
 let paragraphs = ''
 
-section.innerHTML = paragraphs
+// section.innerHTML = paragraphs
 
 /*
   14
