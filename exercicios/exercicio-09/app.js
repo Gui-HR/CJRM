@@ -62,6 +62,12 @@ console.log('--------------------------')
   - Crie uma função que recebe 2 parâmetros: um caractere e uma string;
   - Ao ser invocada, a função deve retornar o index do caractere na string.
 */
+console.log('Exercicio 04 \n')
+
+const indexCharacter = (string, character) => string.indexOf(character)
+
+console.log(indexCharacter('Obg russo doido', 'o'))
+console.log('--------------------------')
 
 /*
   05
@@ -69,6 +75,14 @@ console.log('--------------------------')
   - Crie uma função que, ao ser invocada, retorna um boolean indicando se o item  
     passado por argumento existe no array (também passado por argumento).
 */
+console.log('Exercicio 05 \n')
+
+const poor = ['Salário mínimo', 'Aluguel', 'SERASA', 'Favela', 'Casa?', 'Mendingo']
+
+const verifyItem = (item, array) => array.includes(item)
+
+console.log(verifyItem('Salário mínimo', poor))
+console.log('--------------------------')
 
 /*
   06
@@ -76,6 +90,14 @@ console.log('--------------------------')
   - Crie uma função que retorna a concatenação de 2 arrays, passados como  
     argumentos em sua invocação;
 */
+console.log('Exercicio 06 \n')
+
+const rich = ['Dinheiro', 'Empregados', 'Burguês', 'Ferrari', 'Mansão']
+
+const concatenateArray = (firstArray, secondArray) => firstArray.concat(secondArray)
+
+console.log(concatenateArray(poor, rich))
+console.log('--------------------------')
 
 /*
   07
@@ -83,6 +105,17 @@ console.log('--------------------------')
   - Crie uma função que retorna o array passado como argumento em sua invocação,  
     mas com o último item removido.
 */
+console.log('Exercicio 07 \n')
+
+const games = ['Hollow Knight', 'Enter the Gungeon', 'Celeste', 'Rocket League', 'League of Legens']
+
+const removeLastItem = (array) => {
+  array.pop()
+  return array
+}
+
+console.log(removeLastItem(games))
+console.log('--------------------------')
 
 /*
   08
@@ -90,6 +123,19 @@ console.log('--------------------------')
   - Crie uma função que retorna se o valor passado como argumento em sua  
     invocação é null.
 */
+console.log('Exercicio 08 \n')
+
+const isANull = value => {
+  if(value === null) {
+    return true
+  } else {
+    return false
+  }
+
+}
+
+console.log(isANull(null))
+console.log('--------------------------')
 
 /*
   09
@@ -101,6 +147,14 @@ console.log('--------------------------')
     argumento a função que exibe seu nome no console e veja se o nome realmente  
     foi exibido.
 */
+console.log('Exercicio 09 \n')
+
+const functionInvocator = callback => callback()
+const showYourName = () => console.log('Seu nome')
+
+functionInvocator(showYourName)
+
+console.log('--------------------------')
 
 /*
   10
@@ -112,6 +166,13 @@ console.log('--------------------------')
   - Faça com que a invocação da função descrita no 1º item deste exercício (10)  
     resulte no triplo de 33.
 */
+console.log('Exercicio 10 \n')
+
+const SecondfunctionInvocator = callback => callback(33)
+const tripleValue = value => value * 3
+
+console.log(SecondfunctionInvocator(tripleValue))
+console.log('--------------------------')
 
 /*
   11
@@ -121,8 +182,13 @@ console.log('--------------------------')
   
   "O Xº item do array [X, X, X] é X."
 */
+console.log('Exercicio 11 \n')
 
 const numbers = [1, 2, 3]
+
+numbers.forEach((item, index, array) => console.log(`O ${index + 1}º item do array [${array}] é ${item}.`))
+
+console.log('--------------------------')
 
 /*
   12
@@ -131,13 +197,19 @@ const numbers = [1, 2, 3]
   - Após a conversão, verifique se a cópia do array lettersCopy realmente foi  
     criada.
 */
+console.log('Exercicio 12 \n')
 
 const letters = ['v', 'e', 'p']
 let lettersCopy = []
 
-for (let i = 0; i < letters.length; i++) {
-  lettersCopy.push(letters[i])
-}
+// for (let i = 0; i < letters.length; i++) {
+//   lettersCopy.push(letters[i])
+// }
+
+letters.forEach(letter => lettersCopy.push(letter))
+
+console.log(lettersCopy)
+console.log('--------------------------')
 
 /*
   13
@@ -157,7 +229,7 @@ for (let i = 0; i < letters.length; i++) {
   </article>
 */
 
-// const section = document.querySelector('[data-js="section"]')
+const section = document.querySelector('[data-js="section"]')
 
 const review = [
   'Eu sempre adorei o filme e quando descobri que tinha o livro também fiquei doido. Demorei um pouco mas acabei comprando e finalmente li \o/.',
@@ -168,7 +240,9 @@ const review = [
 
 let paragraphs = ''
 
-// section.innerHTML = paragraphs
+review.forEach( review => {paragraphs += `<p>${review}</p>`})
+
+section.innerHTML = paragraphs
 
 /*
   14
