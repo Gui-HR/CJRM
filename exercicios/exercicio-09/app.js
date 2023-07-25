@@ -125,14 +125,7 @@ console.log('--------------------------')
 */
 console.log('Exercicio 08 \n')
 
-const isANull = value => {
-  if(value === null) {
-    return true
-  } else {
-    return false
-  }
-
-}
+const isANull = value => value === null
 
 console.log(isANull(null))
 console.log('--------------------------')
@@ -168,10 +161,10 @@ console.log('--------------------------')
 */
 console.log('Exercicio 10 \n')
 
-const SecondfunctionInvocator = callback => callback(33)
+const SecondfunctionInvocator = (value, callback) => callback(value)
 const tripleValue = value => value * 3
 
-console.log(SecondfunctionInvocator(tripleValue))
+console.log(SecondfunctionInvocator(33 ,tripleValue))
 console.log('--------------------------')
 
 /*
@@ -185,8 +178,13 @@ console.log('--------------------------')
 console.log('Exercicio 11 \n')
 
 const numbers = [1, 2, 3]
+const showNumbersInfo = (item, index, array) => {
+  const itemPosition = index + 1
+  const itens = array.join(', ')
+  console.log(`O ${itemPosition}º item do array [${itens}] é ${item}.`)
+}
 
-numbers.forEach((item, index, array) => console.log(`O ${index + 1}º item do array [${array}] é ${item}.`))
+numbers.forEach(showNumbersInfo)
 
 console.log('--------------------------')
 
@@ -229,7 +227,7 @@ console.log('--------------------------')
   </article>
 */
 
-const section = document.querySelector('[data-js="section"]')
+// const section = document.querySelector('[data-js="section"]')
 
 const review = [
   'Eu sempre adorei o filme e quando descobri que tinha o livro também fiquei doido. Demorei um pouco mas acabei comprando e finalmente li \o/.',
@@ -238,11 +236,11 @@ const review = [
   'Recomendo esse livro pra quem curte uma boa história de ficção. Apesar de muita gente pensar que o livro não tem graça, porque o legal mesmo é ver o dinossauro no filme, com todos os efeitos especiais, eu digo pra deixar esse pensamento de lado, pois a história é tão bem contada e os detalhes são tão bem relatados, que você passa a fazer parte da história, e vive todas as emoções hahaha.'
 ]
 
-let paragraphs = ''
+// let paragraphs = ''
 
-review.forEach( review => {paragraphs += `<p>${review}</p>`})
+// review.forEach( review => {paragraphs += `<p>${review}</p>`})
 
-section.innerHTML = paragraphs
+// section.innerHTML = paragraphs
 
 /*
   14
@@ -264,3 +262,37 @@ section.innerHTML = paragraphs
     pelo restante da quantidade de pessoas que curtiram o post (além das duas  
     pessoas já mencionadas no início da mensagem).
 */
+console.log('Exercicio 14 \n')
+
+const postLikes = ['Rafael', 'Leonardo', 'Donatelo', 'Mikelangelo']
+
+const showLikes = whoLiked => {
+  const howManyLikes = whoLiked.length
+  const firstLike = whoLiked[0]
+  const secondLike = whoLiked[1]
+  const thirdLike = whoLiked[2]
+
+  switch (howManyLikes) {
+    case 0:
+      console.log("Ninguém curtiu isso")
+      break
+
+    case 1:
+      console.log(`${firstLike} curtiu isso`)
+      break
+
+    case 2:
+      console.log(`${firstLike} e ${secondLike} curtiram isso`)
+      break
+
+    case 3:
+      console.log(`${firstLike}, ${secondLike} e ${thirdLike} curtiram isso`)
+      break
+    
+    default:
+      console.log(`${firstLike}, ${secondLike} e mais ${howManyLikes - 2} curtiram isso`)
+  }
+}
+
+showLikes(postLikes)
+
