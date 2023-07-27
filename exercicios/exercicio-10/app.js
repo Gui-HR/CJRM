@@ -13,8 +13,8 @@ console.log('Exercício 01 \n')
 
 const cat = {
   name: 'Lynx',
-  age: 4,
-  color: 'gray',
+  age: 1,
+  color: 'Gray',
   bestFriends: ['Juninho', 'Franklyn'],
   sound: function () {
     return 'Nyan, it ni san Nyan, Arigato!'
@@ -58,7 +58,9 @@ console.log('-----------------------')
 */
 console.log('Exercício 04 \n')
 
-const newCatBestFriend = (newBestFriend) => cat.bestFriends.push(newBestFriend)
+const newCatBestFriend = (newBestFriend) => {
+  cat.bestFriends.push(newBestFriend)
+}
 
 newCatBestFriend('Banguela')
 
@@ -73,6 +75,16 @@ console.log('-----------------------')
   - Exiba a nova cor do gato no console, também utilizando a sintaxe de  
     colchetes.
 */
+console.log('Exercício 05 \n')
+
+const newCatColor = (newColor) => {
+  cat['color'] = [cat.color, newColor]
+}
+
+newCatColor('Black')
+
+console.log(cat['color'])
+console.log('-----------------------')
 
 /*
   06
@@ -81,6 +93,12 @@ console.log('-----------------------')
     parâmetro é um objeto;
   - Utilize a função para exibir no console se "cat" é um objeto.
 */
+console.log('Exercício 06 \n')
+
+const isAObject = value => typeof value == 'object'
+
+console.log(isAObject(cat))
+console.log('-----------------------')
 
 /*
   07
@@ -90,7 +108,25 @@ console.log('-----------------------')
   - Exiba a mensagem no console.
 
   "A soma das idades de NOME_DO_GATO e NOME_DO_CACHORRO é RESULTADO_DA_SOMA."
+
 */
+console.log('Exercício 07 \n')
+
+const dog = {
+  name: 'Fini',
+  age: 4,
+  color: 'White',
+  bestFriends: ['Trufa', 'Gary'],
+  sound: function() {
+    return 'Auau'
+  }
+}
+ 
+const petMessage = (cat, dog) => `A soma das idades de ${cat.name} e ${dog.name} é ${cat.age + dog.age}.`
+
+console.log(petMessage(cat, dog))
+
+console.log('-----------------------')
 
 /*
   08
@@ -99,17 +135,29 @@ console.log('-----------------------')
     está funcionando corretamente. Mas ela pode ser melhorada;
   - Como você refatoraria esta função?
 */
+console.log('Exercício 08 \n')
+
+// const isAnSUV = car => {
+  // if (car === 'Honda HR-V' || car === 'Jeep Renegade' || car === 'Ford EcoSport' || car === 'Hyundai iX35') {
+  //   return true
+  // }
+
+  // return false
+// }
+
+const cars = ['Honda HR-V', 'Jeep Renegade', 'Ford EcoSport', 'Hyundai iX35']
 
 const isAnSUV = car => {
-  if (car === 'Honda HR-V' || car === 'Jeep Renegade' || car === 'Ford EcoSport' || car === 'Hyundai iX35') {
+  if(cars.includes(car)) {
     return true
   }
 
   return false
 }
 
-// console.log(isAnSUV('Honda Civic'))
-// console.log(isAnSUV('Ford EcoSport'))
+console.log(isAnSUV('Honda Civic'))
+console.log(isAnSUV('Ford EcoSport'))
+console.log('-----------------------')
 
 /*
   09
@@ -123,3 +171,22 @@ const isAnSUV = car => {
     propriedades, retorne a mensagem que a propriedade armazena;
   - Teste a função, exibindo no console a mensagem de cada propriedade.
 */
+console.log('Exercício 09 \n')
+
+
+const typeVerifi = type => {
+  const types = {
+    null: 'Seta, explicitamente, uma variável sem valor.',
+    undefined: 'Representa um valor não-setado.',
+    object:'Arrays, Datas, Objetos literais, Funções, etc.'
+  }
+  
+  return types[type]
+}
+
+console.log(typeVerifi('null'))
+console.log(typeVerifi('undefined'))
+console.log(typeVerifi('object'))
+
+
+console.log('-----------------------')
