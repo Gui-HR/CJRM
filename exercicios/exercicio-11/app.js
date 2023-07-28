@@ -5,6 +5,8 @@
   - Ela deve ter um escopo global.
 */
 
+const myName = 'Guilherme'
+
 /*
   02
 
@@ -16,8 +18,19 @@
     dentro da função;
   - Um erro com a mensagem "Uncaught ReferenceError: SUA_VARIÁVEL is not  
     defined" será exibido no console;
-  - Você sabe por que isso aconteceu?
+  - Você sabe por que isso aconteceu? 
+  Sim, Isso aconteceu pois a let foi declarada em um escopo diferente do console.log(), o console.log() foi declarado em um escopo global e a variável let foi declarada em um escopo local, por isso o console.log() não pode acessar a variável let.
 */
+console.log('Exercício 02 \n')
+
+const showMyAge = () => {
+  let age = 19
+  return age
+}
+
+console.log(showMyAge())
+// console.log(age)
+console.log('----------------------')
 
 /*
   03
@@ -36,24 +49,66 @@
     - getColorsMessage, que é um método que retorna a mensagem  
       "O NOME_DO_CARRO está disponível nas cores COR_01, COR_02 e COR_03".
 */
+console.log('Exercício 03 \n')
+
+const car = {
+  name: 'Civic',
+  brand: 'Honda',
+  colors: ['Prata', 'Preto', 'Branco'],
+  isRunning: false,
+  run () {
+    this.isRunning = true
+    return `O ${this.name} está em movimento.`
+  },
+  stop () {
+    this.isRunning = false
+    return `O ${this.name} está parado.`
+  },
+  getColorsMessage () {
+    const lastItem = this.colors[this.colors.length - 1]
+    const colors = this.colors.join(', ').replace(`, ${lastItem}`, ` e ${lastItem}`)
+    return `O ${this.name} está disponivel nas cores ${colors}.`
+  }
+}
+
+console.log(car.run())
+console.log(car.stop())
+console.log(car.getColorsMessage())
+console.log('----------------------')
 
 /*
   04
 
   - Faça o carro andar e exiba no console se ele realmente está em movimento.
 */
+console.log('Exercício 04 \n')
+
+console.log(car.run())
+console.log(car.isRunning === true)
+console.log('----------------------')
 
 /*
   05
 
   - Faça o carro parar e exiba no console se ele realmente está parado.
 */
+console.log('Exercício 05 \n')
+
+console.log(car.stop())
+console.log(car.isRunning === false)
+
+console.log('----------------------')
 
 /*
   06
 
   - Exiba, no console, a mensagem com as cores do carro.
 */
+console.log('Exercício 06 \n')
+
+console.log(car.getColorsMessage())
+
+console.log('----------------------')
 
 /*
   07
@@ -61,3 +116,10 @@
   - Exiba, no console, a mensagem "O carro é um MARCA_DO_CARRO NOME_DO_CARRO";
   - Utilize a notação de colchetes para acessar as propriedades do carro.
 */
+console.log('Exercício 07 \n')
+
+const carsName = 'name'
+const carsBrand = 'brand'
+
+console.log(`O carro é um ${car[carsBrand]} ${car[carsName]}`)
+console.log('----------------------')
