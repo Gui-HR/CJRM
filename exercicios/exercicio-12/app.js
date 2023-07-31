@@ -11,6 +11,7 @@
   
   - Todos os filmes e diretores do array devem constar na lista.
 */
+console.log('Exercício 01\n')
 
 const best2019Movies = [
   { title: 'Parasita', directedBy: 'Bong Joon-ho' },
@@ -27,6 +28,18 @@ const best2019Movies = [
   { title: 'A Vida Invisível', directedBy: 'Karim Aïnouz' }
 ]
 
+let movies2019 = 'Segundo o site Omelete, os melhores filmes de 2019 são:'
+
+best2019Movies.forEach((movie) => {
+  const movieName = movie.title
+  const movieDirector = movie.directedBy
+
+  movies2019 += `\n -${movieName}, dirigido por ${movieDirector}`
+})
+
+console.log(movies2019)
+console.log('----------------------')
+
 /*
   02
 
@@ -40,6 +53,7 @@ const best2019Movies = [
   
   - As 4 linhas da mensagem, podem ser exibidas separadamente.
 */
+console.log('Exercício 02\n')
 
 const youtubeUser = {
   name: 'Roger Melo',
@@ -59,16 +73,32 @@ const youtubeUser = {
       gitHub: 'https://github.com/Roger-Melo'
     },
     country: 'Brasil'
+  },
+  showLastVideos () {
+    let lastVideos = `Vídeos recentes de ${this.name}:`
+
+    this.videos.recentVideos.forEach((video) => {
+      const videotitle = video.title
+      lastVideos += `\n${videotitle}`
+    })
+
+    console.log(lastVideos)
   }
 }
+
+youtubeUser.showLastVideos()
+
+console.log('----------------------')
 
 /*
   03
 
   - Exiba o valor do PI no console.
 */
+console.log('Exercício 03\n')
 
-
+console.log(Math.PI)
+console.log('----------------------')
 
 /*
   04
@@ -76,8 +106,13 @@ const youtubeUser = {
   - Arredonde o número que a constante abaixo armazena para 9 e exiba-o no  
     console.
 */
+console.log('Exercício 04\n')
 
 const firstNumber = 8.3
+const firstNumberRounded = Math.ceil(firstNumber)
+
+console.log(firstNumberRounded)
+console.log('----------------------')
 
 /*
   05
@@ -85,8 +120,13 @@ const firstNumber = 8.3
   - Arredonde o número que a constante abaixo armazena para 4, utilizando a  
     forma padrão, e exiba-o no console.
 */
+console.log('Exercício 05\n')
 
 const secondNumber = 3.5
+const secondNumberRounded = Math.round(secondNumber)
+
+console.log(secondNumberRounded)
+console.log('----------------------')
 
 /*
   06
@@ -94,16 +134,26 @@ const secondNumber = 3.5
   - Arredonde o número que a constante abaixo armazena para 8 e exiba-o no  
     console.
 */
+console.log('Exercício 06\n')
 
 const thirdNumber = 8.9
+const thirdNumberRounded = Math.floor(thirdNumber)
+
+console.log(thirdNumberRounded)
+console.log('----------------------')
 
 /*
   07
 
   - Exiba no console o número abaixo com a parte decimal removida.
 */
+console.log('Exercício 07\n')
 
 const fourthNumber = 5.5
+const fourthNumberRounded = Math.trunc(fourthNumber)
+
+console.log(fourthNumberRounded)
+console.log('----------------------')
 
 /*
   08
@@ -111,3 +161,10 @@ const fourthNumber = 5.5
   - A cada vez que o index.html for carregado, exiba no console um número  
     aleatório de 0 à 10, incluindo 0 e 10.
 */
+console.log('Exercício 08\n')
+
+const randomDecimalNumber = Math.random()
+const randomNumber = Math.trunc(randomDecimalNumber * 10)
+
+console.log(randomNumber)
+console.log('----------------------')

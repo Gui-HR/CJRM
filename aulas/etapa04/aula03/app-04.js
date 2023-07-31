@@ -1,5 +1,5 @@
-let numberOne = 50
-let numberTwo = numberOne
+let scoreOne = 50
+let scoreTwo = numberOne
 
 console.log(numberOne, numberTwo)
 
