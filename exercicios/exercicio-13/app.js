@@ -7,12 +7,20 @@
 
   "NOME_DO_GATO é um gato COR_DO_GATO de IDADE_DO_GATO anos."
 */
+console.log('Exercícicos 01\n')
 
 const getCatInfo = () => {
   const name = 'Marcos'
   let age = 3
   const color = 'Cinza'
+
+  return {name, age, color}
 }
+
+const { namen, age, color} = getCatInfo()
+
+console.log(`${namen} é um gato ${color} de ${age} anos.`)
+console.log('------------------')
 
 /*
   02
@@ -21,18 +29,25 @@ const getCatInfo = () => {
     exibir no console a string que a const movie armazena, com todas as letras  
     maiúsculas.
 */
+console.log('Exercícicos 02\n')
 
-const external = () => {
+const externaly = () => {
   const movie = 'Parasite'
 
   const internal = () => {
     const extraInternal = () => {
       console.log(movie.toUpperCase())
     }
+
+    extraInternal()
   }
+
+  internal()
 }
 
-external()
+externaly()
+
+console.log('------------------')
 
 /*
   03
@@ -42,8 +57,13 @@ external()
 
   Dica: procure pelo método reverse, no MDN.
 */
+console.log('Exercícicos 3\n')
 
 let randomNumbers = [3, 2, 1]
+const invertedRandomNumbers = randomNumbers.reverse()
+
+console.log(`invertedRandomNumbers = ${invertedRandomNumbers} e randomNumbers = ${randomNumbers}`)
+console.log('------------------')
 
 /*
   04
@@ -52,12 +72,18 @@ let randomNumbers = [3, 2, 1]
 
   Dica: procure pelo método shift, no MDN.
 */
+console.log('Exercícicos 4\n')
 
 let crazyArray = [
   { prop1: '1', prop2: '2' },
   function getMessage () { return 'hi' },
   [ 5, 96, 53  ]
 ]
+
+crazyArray.shift()
+
+console.log(crazyArray)
+console.log('------------------')
 
 /*
   05
@@ -67,6 +93,7 @@ let crazyArray = [
 
   Dica: procure pelo método find, no MDN.
 */
+console.log('Exercícicos 5\n')
 
 const dogs = [
   { name: 'Olivia', age: 3, gender: 'Female', breed: 'Maltês' },
@@ -75,6 +102,11 @@ const dogs = [
   { name: 'Zequinha', age: 7, gender: 'Male', breed: 'Poodle' },
   { name: 'Xica', age: 6, gender: 'Female', breed: 'Chihuahua' }
 ]
+
+const zequinha = dogs.find((dog) => dog.name === 'Zequinha')
+
+console.log(zequinha)
+console.log('------------------')
 
 /*
   06
@@ -107,6 +139,12 @@ const dogs = [
     </article>
   </section>
 */
+console.log('Exercícicos 6\n')
+
+const mainTitle = document.querySelector('.main-title')
+
+console.log(mainTitle)
+console.log('------------------')
 
 /*
   07
@@ -115,3 +153,9 @@ const dogs = [
     página, através da classe deles;
   - Exiba esse NodeList no console.
 */
+console.log('Exercícicos 7\n')
+
+const secondaryTitles = document.querySelectorAll('.secondary-title')
+
+console.log(secondaryTitles)
+console.log('------------------')
