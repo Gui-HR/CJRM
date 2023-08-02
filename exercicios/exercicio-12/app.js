@@ -30,12 +30,14 @@ const best2019Movies = [
 
 let movies2019 = 'Segundo o site Omelete, os melhores filmes de 2019 são:'
 
-best2019Movies.forEach((movie) => {
+const generateMovieMessge = movie => {
   const movieName = movie.title
   const movieDirector = movie.directedBy
 
   movies2019 += `\n -${movieName}, dirigido por ${movieDirector}`
-})
+}
+
+best2019Movies.forEach(generateMovieMessge)
 
 console.log(movies2019)
 console.log('----------------------')
@@ -77,7 +79,7 @@ const youtubeUser = {
   showLastVideos () {
     let lastVideos = `Vídeos recentes de ${this.name}:`
 
-    this.videos.recentVideos.forEach((video) => {
+    this.videos.recentVideos.forEach(video => {
       const videotitle = video.title
       lastVideos += `\n${videotitle}`
     })
@@ -164,7 +166,7 @@ console.log('----------------------')
 console.log('Exercício 08\n')
 
 const randomDecimalNumber = Math.random()
-const randomNumber = Math.trunc(randomDecimalNumber * 10)
+const randomNumber = Math.round(randomDecimalNumber * 10)
 
 console.log(randomNumber)
 console.log('----------------------')
