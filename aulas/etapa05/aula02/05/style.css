@@ -1,0 +1,15 @@
+* {
+    margin: 0px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.error {
+    color: crimson;
+    border: 1px dotted crimson;
+}
+
+.success {
+    color: green;
+    border: 1px dotted green;
+}
