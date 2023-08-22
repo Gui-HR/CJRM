@@ -18,3 +18,13 @@ input, button {
     margin: 10px auto;
     padding: 4px;
 }
+
+.valid {
+    border: 2px solid green;
+    outline: none;
+}
+
+.invalid {
+    border: 2px solid red;
+    outline: none;
+}

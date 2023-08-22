@@ -17,15 +17,15 @@ const logMessge = message => {
 }
 
 const handleSubmit = event => {
-  const thirdRegex = /^[a-zA-Z0-9]{7,11}$/
-  const input = event.target.input
-  const isAMatch = thirdRegex.test(input.value)
+  const formRegex = /^[a-zA-Z0-9]{7,11}$/
+  const input = form.input
+  const isAValidValue = formRegex.test(input.value)
 
   event.preventDefault()
   
   console.log(input.value)
 
-  if(isAMatch) {
+  if(isAValidValue) {
     logMessge("O valor inserido no input é válido =)")
     return
   }  

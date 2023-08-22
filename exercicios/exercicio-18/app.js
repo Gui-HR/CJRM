@@ -21,6 +21,77 @@
   Dica: pesquise pelo método "insertAdjacentElement", no MDN;
 */
 
+const inputUsername = document.querySelector('#username')
+const form = document.querySelector('form')
+const button = document.querySelector('.button')
+
+const InputFeedback = document.createElement('p')
+const submitFeedback = document.createElement('p')
+
+inputUsername.insertAdjacentElement('afterend', InputFeedback)
+button.insertAdjacentElement('afterend', submitFeedback)
+
+const testRegex = element => /^[a-zA-Z]{6,}$/.test(element)
+
+const inputInvalidUsername = {
+  paragraph: InputFeedback,
+  className: 'username-help-feedback',
+  message: 'O valor deve conter no mínimo 6 caracteres, com apenas letras maiúsculas e/ou minúsculas'
+}
+
+const inputValidUsername = {
+  paragraph: InputFeedback,
+  className: 'username-success-feedback',
+  message: 'Username válido =)'
+}
+
+const submitInvalidUsername = {
+  paragraph: submitFeedback,
+  className: 'submit-help-feedback',
+  message: 'Por favor, insira um username válido'
+}
+
+const submitValidUsername = {
+  paragraph: submitFeedback,
+  className: 'submit-success-feedback',
+  message: 'Dados enviados =)'
+}
+
+const feedback = ({ paragraph, className, message }) => {
+  paragraph.setAttribute('class', className)
+  paragraph.textContent = message
+}
+
+
+const showInputInfo = event => {
+  submitFeedback.textContent = ''
+
+  const usernameTest = testRegex(event.target.value)
+
+  if(!usernameTest) {
+    feedback(inputInvalidUsername)
+    return
+  }
+  
+  feedback(inputValidUsername)
+}
+
+const showSubmitInfo = event => {
+  event.preventDefault()
+
+  const usernameTest = testRegex(inputUsername.value)
+
+  if(!usernameTest) {
+    feedback(submitInvalidUsername)
+    return
+  }
+  
+  feedback(submitValidUsername)
+}
+
+inputUsername.addEventListener('input', showInputInfo)
+form.addEventListener('submit', showSubmitInfo)
+
 /*
   02
 
@@ -46,7 +117,20 @@
   - Se você não se lembra como o método some funciona, há 2 opções:
     1) Reassistir às seguintes aulas:
       - "Desenvolvendo um popup" - Aula 04-04 da etapa 5;
-      - "Correção dos exercícios da aula 04 da etapa 05" - Aula 01-01 da etapa  
+      - "Correção dos exercícios da aula 04 da etapa 05" - Aula 01-01 da etapa 
         6;
     2) Pesquisar no MDN.
 */
+
+const some = (array, func) => {
+  for(let i = 0; i < array.length; i++) {
+    if(func(array[i])) {
+      return true
+    }
+  }
+
+  return false
+}
+
+console.log(some([1, 2, 3], item => item > 2))
+console.log(some([1, 2, 3], item => item === 0))
