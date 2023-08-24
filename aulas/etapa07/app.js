@@ -1,6 +1,8 @@
 const correctAnswers = ['B', 'B', 'B', 'B']
 
 const form = document.querySelector('.quiz-form')
+const result = document.querySelector('.result')
+const span = result.querySelector('span')
 
 form.addEventListener('submit', event => {
     event.preventDefault()
@@ -11,29 +13,27 @@ form.addEventListener('submit', event => {
         form.inputQuestion3.value,
         form.inputQuestion4.value
     ]
-    console.log('userAnswers:',userAnswers)
 
-    let test = 0
+    let score = 0
 
     userAnswers.forEach((answer, index) => {
-            test ++
-        console.log(answer)
-        console.log(correctAnswers[index])
-        console.log(form)
+        if(answer === correctAnswers[index])
+        score += 25
     })
 
-    console.log(test)
+    scrollTo(0,0)
+
+    result.classList.remove('d-none')
+
+    let counter = 0
+
+    const timer = setInterval(() => {
+        if(counter === score) {
+            clearInterval(timer)
+        }
+
+        span.textContent = `${counter}%`
+
+        counter++     
+    }, 10)
 })
-
-
-
-// })
-
-// let score = 0
-
-//     userAnswers.forEach((answer, index) => {
-//         if(answer === correctAnswers[index])
-//         score += 25
-//     })
-
-//     console.log(score)

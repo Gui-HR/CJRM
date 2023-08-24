@@ -10,90 +10,95 @@
     <div class="title-container">
         <h1 class="title">Quiz sobre mim :3</h1>
     </div>
+    <div class="final-score-container inactive">
+        <p class="result">Você acertou <span class="final-score">0%</span> do quiz sobre Guilherme!</p>
+    </div>
 
     <main>
+        <h2 class="intro-title">Assinale uma das alternativas de cada pergunta abaixo, veja o resultado após enviar as respostas!</h2>
+
         <form>
             <div class="question">
                 <p>Em que ano Guilherme nasceu?</p>
                 <div>
-                    <label for="2003">Ano de 2003</label>
-                    <input type="radio" name="inputIdade" id="2003" value="A">
+                    <label for="age-A">Ano de 2003</label>
+                    <input type="radio" name="inputQuestion1" id="age-A" value="A" checked>
                 </div>
                 <div>
-                    <label for="2004">Ano de 2004</label>
-                    <input type="radio" name="inputIdade" id="2004" value="B">
+                    <label for="age-B">Ano de 2004</label>
+                    <input type="radio" name="inputQuestion1" id="age-B" value="B">
                 </div>
                 <div>
-                    <label for="2005">Ano de 2005</label>
-                    <input type="radio" name="inputIdade" id="2005" value="C">
+                    <label for="age-C">Ano de 2005</label>
+                    <input type="radio" name="inputQuestion1" id="age-C" value="C">
                 </div>
                 <div>
-                    <label for="2006">Ano de 2006</label>
-                    <input type="radio" name="inputIdade" id="2006" value="D">
+                    <label for="age-D">Ano de 2006</label>
+                    <input type="radio" name="inputQuestion1" id="age-D" value="D">
                 </div>
             </div>
 
             <div class="question">
                 <p>Qual é o nome completo de Guilherme?</p>
                 <div>
-                    <label for="">João Guilherme Rocha</label>
-                    <input type="radio" name="inputIdade" id="2003" value="A">
+                    <label for="name-A">João Guilherme Rocha</label>
+                    <input type="radio" name="inputQuestion2" id="name-A" value="A" checked>
                 </div>
                 <div>
-                    <label for="2004">Guilherme Huerta</label>
-                    <input type="radio" name="inputIdade" id="2004" value="B">
+                    <label for="name-B">Guilherme Huerta</label>
+                    <input type="radio" name="inputQuestion2" id="name-B" value="B">
                 </div>
                 <div>
-                    <label for="2005">Guilherme Huerta Rocha Junior</label>
-                    <input type="radio" name="inputIdade" id="2005" value="C">
+                    <label for="name-C">Guilherme Huerta Rocha Junior</label>
+                    <input type="radio" name="inputQuestion2" id="name-C" value="C">
                 </div>
                 <div>
-                    <label for="2006">Guilherme Huerta Rocha</label>
-                    <input type="radio" name="inputIdade" id="2006" value="D">
+                    <label for="name-D">Guilherme Huerta Rocha</label>
+                    <input type="radio" name="inputQuestion2" id="name-D" value="D">
                 </div>
             </div>
 
             <div class="question">
-                <p>Em que ano Guilherme nasceu?</p>
+                <p>Qual o jogo favorito de Guilherme?</p>
                 <div>
-                    <label for="2003">Ano de 2003</label>
-                    <input type="radio" name="inputIdade" id="2003" value="A">
+                    <label for="game-A">Hollow Knight</label>
+                    <input type="radio" name="inputQuestion3" id="game-A" value="A" checked>
                 </div>
                 <div>
-                    <label for="2004">Ano de 2004</label>
-                    <input type="radio" name="inputIdade" id="2004" value="B">
+                    <label for="game-B">Minecraft</label>
+                    <input type="radio" name="inputQuestion3" id="game-B" value="B">
                 </div>
                 <div>
-                    <label for="2005">Ano de 2005</label>
-                    <input type="radio" name="inputIdade" id="2005" value="C">
+                    <label for="game-C">Hyper Light Drifter</label>
+                    <input type="radio" name="inputQuestion3" id="game-C" value="C">
                 </div>
                 <div>
-                    <label for="2006">Ano de 2006</label>
-                    <input type="radio" name="inputIdade" id="2006" value="D">
+                    <label for="game-D">Stardew Valley</label>
+                    <input type="radio" name="inputQuestion3" id="game-D" value="D">
                 </div>
             </div>
 
             <div class="question">
-                <p>Em que ano Guilherme nasceu?</p>
+                <p>Qual o animal favorito de Guilherme?</p>
                 <div>
-                    <label for="2003">Ano de 2003</label>
-                    <input type="radio" name="inputIdade" id="2003" value="A">
+                    <label for="animal-A">Cachorro</label>
+                    <input type="radio" name="inputQuestion4" id="animal-A" value="A" checked>
                 </div>
                 <div>
-                    <label for="2004">Ano de 2004</label>
-                    <input type="radio" name="inputIdade" id="2004" value="B">
+                    <label for="animal-B">Suricato</label>
+                    <input type="radio" name="inputQuestion4" id="animal-B" value="B">
                 </div>
                 <div>
-                    <label for="2005">Ano de 2005</label>
-                    <input type="radio" name="inputIdade" id="2005" value="C">
+                    <label for="animal-C">Corvo</label>
+                    <input type="radio" name="inputQuestion4" id="animal-C" value="C">
                 </div>
                 <div>
-                    <label for="2006">Ano de 2006</label>
-                    <input type="radio" name="inputIdade" id="2006" value="D">
+                    <label for="animal-D">Axolote</label>
+                    <input type="radio" name="inputQuestion4" id="animal-D" value="D">
                 </div>
             </div>
 
-            <button>Enviar</button>
+            <button class="button">Enviar</button>
         </form>
     </main>
 

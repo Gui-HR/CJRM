@@ -12,6 +12,64 @@ Independente se você já fez o quiz dos filmes enquanto acompanhava a aula, bus
 É importante que a sua versão do quiz seja feita apenas com o conteúdo que vimos até aqui.
 */
 
-const form = document.querySelector('form')
+const correctAnswers = ['B', 'D', 'A', 'C']
 
-console.log(form.inputIdade)
+const form = document.querySelector('form')
+const finalScore = document.querySelector('.final-score')
+const finalScoreContainer = document.querySelector('.final-score-container')
+
+let score = 0
+
+const getUserAnswers = () => {
+    let userAnswers = []
+
+    correctAnswers.forEach((_, index) => {
+        userAnswers.push(form[`inputQuestion${index + 1}`].value)
+    })
+
+    return userAnswers
+}
+
+const calculateFinalScore = userAnswers => {
+    score = 0
+
+    userAnswers.forEach((answer, index) => {
+        if(answer === correctAnswers[index]) {
+            score += 25
+        }
+    })
+}
+
+const showFinalScore = () => {
+    finalScoreContainer.classList.remove('inactive')
+    
+    scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
+}
+
+const animateFinalScore = () => {
+    let counter = 0
+
+    const timer = setInterval(() => {
+        if(counter === score) {
+            clearInterval(timer)
+        }
+    
+        finalScore.textContent = `${counter++}%`
+    }, 15)
+}
+
+const showQuizResult =  event => {
+    event.preventDefault()
+
+    const userAnswers = getUserAnswers()
+    calculateFinalScore(userAnswers)
+    showFinalScore()
+    console.log(score)
+    animateFinalScore()
+}
+
+form.addEventListener('submit', showQuizResult)
