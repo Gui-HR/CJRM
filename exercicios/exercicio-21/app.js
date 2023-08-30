@@ -7,6 +7,12 @@
 
 const randomNumbers = [10, 30, 15, 25, 50, 40, 5]
 
+const getOddNumbers = number => number % 2 === 1
+
+const oddNumbers = randomNumbers.filter(getOddNumbers)
+
+console.log(oddNumbers)
+
 /*
   02
 
@@ -14,6 +20,10 @@ const randomNumbers = [10, 30, 15, 25, 50, 40, 5]
 */
 
 const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691]
+
+const howManyLess501 = crazyNumbers.reduce((accumulator, number) => number < 501 ? ++accumulator : accumulator, 0)
+
+console.log(howManyLess501)
 
 /*
   03
@@ -23,6 +33,10 @@ const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691]
 */
 
 const numbers = [5, 7, 3]
+
+const squareNumbers = numbers.map(number => number ** 2 )
+
+console.log(squareNumbers)
 
 /*
   04
@@ -49,6 +63,10 @@ const cart = [
   - Nome 3
 */
 
+const productList = cart.reduce((accumulator, { name }) => accumulator += `- ${name}\n`, '')
+
+console.log(productList)
+
 /*
   05
 
@@ -70,6 +88,10 @@ const tarantinoMovies = [
   { name: 'Kill Bill: Volume 1', release: 2003 }
 ]
 
+const moviesBefore2000 = tarantinoMovies.filter(movie => movie.release < 2000)
+
+console.log(moviesBefore2000)
+
 /*
   06
 
@@ -87,9 +109,14 @@ const tvShows = [
   { name: 'Watchmen', releaseYear: 2019 }
 ]
 
+const seriesNames = tvShows.map(({ name }) => name)
+
+console.log(seriesNames)
+
 /*
   07
 
   - Observe os loops da sua versão do quiz e considere se, baseado no que foi  
     visto nessa aula, você deve refatorá-los.
 */
+

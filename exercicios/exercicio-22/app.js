@@ -6,7 +6,12 @@
   - Exiba o array ordenado no console.
 */
 
+const copyArray = array => array.map(item => item)
+
 const names = ['Caio', 'André', 'Dário']
+const orderedNames = copyArray(names).sort()
+
+console.log(orderedNames)
 
 /*
   02
@@ -17,11 +22,16 @@ const names = ['Caio', 'André', 'Dário']
 */
 
 const characters = [
-  { id: 03, name: 'Simba' },
-  { id: 02, name: 'Nala' },
-  { id: 01, name: 'Scar' },
-  { id: 04, name: 'Mufasa' }
+  { id: 3, name: 'Simba' },
+  { id: 2, name: 'Nala' },
+  { id: 1, name: 'Scar' },
+  { id: 4, name: 'Mufasa' }
 ]
+
+const orderedCharacters = copyArray(characters)
+  .sort((character1, character2) => character1.id - character2.id)
+
+console.log(orderedCharacters)
 
 /*
   03
@@ -33,6 +43,11 @@ const characters = [
 
 const numbers = [41, 15, 63, 349, 25, 22, 143, 64, 59, 291]
 
+const orderedNumbers = copyArray(numbers)
+  .sort((number1, number2) => number1 - number2)
+
+console.log(orderedNumbers)
+
 /*
   04
 
@@ -40,6 +55,9 @@ const numbers = [41, 15, 63, 349, 25, 22, 143, 64, 59, 291]
 */
 
 const randomNumbers = [10, 5, 0, 40, 60, 10, 20, 70]
+const firstNumberGreaterThan50 = randomNumbers.find(number => number > 50)
+
+  console.log(firstNumberGreaterThan50)
 
 /*
   05
@@ -50,6 +68,9 @@ const randomNumbers = [10, 5, 0, 40, 60, 10, 20, 70]
 */
 
 const people = ['Cauã', 'Alfredo', 'Bruno']
+const orderedPeople = copyArray(people).sort().reverse()
+
+console.log(orderedPeople)
 
 /*
   06
@@ -60,6 +81,16 @@ const people = ['Cauã', 'Alfredo', 'Bruno']
 */
 
 const ingredients = ['vinho', 'tomate', 'cebola', 'cogumelo']
+
+const ingredientString = ingredients.reduce((accumulator, ingredient, index, array) => {
+  const cook = ingredient[ingredient.length - 1] === 'a' ? 'cozida' : 'cozido'
+  const isLastIngredient = index === array.length -1
+  const ingredientMessage = accumulator += `${ingredient} ${cook}`
+  
+  return isLastIngredient ? ingredientMessage : `${ingredientMessage}, `
+}, '')
+
+console.log(ingredientString)
 
 /*
   07
@@ -81,6 +112,11 @@ const topBrazilmovies = [
   { title: 'Dona Flor e Seus Dois Maridos', peopleAmount: 10735524, distributedBy: 'Embrafilme' }
 ]
 
+const totalViewsDisneyMovies = topBrazilmovies.reduce((accumulator, { peopleAmount, distributedBy }) =>
+ distributedBy === 'Disney' ? accumulator += peopleAmount : accumulator, 0)
+
+console.log(totalViewsDisneyMovies)
+
 /*
   08
   
@@ -101,12 +137,25 @@ const pets = [
   { name: 'Chico', age: 6, gender: 'Male', type: 'Dog' }
 ]
 
+const dogs = pets.filter(({type}) => type === 'Dog')
+  .map(({ name, age, gender, type }) => ({name, age: age * 7, gender, type}))
+
+console.log(dogs)
+
 /*
   09
   
   - Considerando o array topBrazilmovies, através do map ou do reduce, insira 
     os nomes dos filmes na ul do index.html.
 */
+
+const ul = document.querySelector('.list-group')
+
+topBrazilmovies.map(({ title }) => {
+  const movie = document.createElement('li')
+  movie.textContent = title
+  ul.appendChild(movie)
+})
 
 /*
   10

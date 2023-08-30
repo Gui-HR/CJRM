@@ -18,27 +18,12 @@ const form = document.querySelector('form')
 const finalScore = document.querySelector('.final-score')
 const finalScoreContainer = document.querySelector('.final-score-container')
 
-let score = 0
+const getUserAnswers = () => correctAnswers.map((_, index) => 
+    form[`inputQuestion${index + 1}`].value)
 
-const getUserAnswers = () => {
-    let userAnswers = []
+const calculateFinalScore = userAnswers => userAnswers.reduce((accumulator, answer, index) => 
+    answer === correctAnswers[index] ? accumulator += 25 : accumulator, 0)
 
-    correctAnswers.forEach((_, index) => {
-        userAnswers.push(form[`inputQuestion${index + 1}`].value)
-    })
-
-    return userAnswers
-}
-
-const calculateFinalScore = userAnswers => {
-    score = 0
-
-    userAnswers.forEach((answer, index) => {
-        if(answer === correctAnswers[index]) {
-            score += 25
-        }
-    })
-}
 
 const showFinalScore = () => {
     finalScoreContainer.classList.remove('inactive')
@@ -50,7 +35,7 @@ const showFinalScore = () => {
     })
 }
 
-const animateFinalScore = () => {
+const animateFinalScore = (score) => {
     let counter = 0
 
     const timer = setInterval(() => {
@@ -66,10 +51,9 @@ const showQuizResult =  event => {
     event.preventDefault()
 
     const userAnswers = getUserAnswers()
-    calculateFinalScore(userAnswers)
+    const score = calculateFinalScore(userAnswers)
     showFinalScore()
-    console.log(score)
-    animateFinalScore()
+    animateFinalScore(score)
 }
 
 form.addEventListener('submit', showQuizResult)
