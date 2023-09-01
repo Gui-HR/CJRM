@@ -5,7 +5,9 @@
   - Não modifique a string manualmente.
 */
 
-const myString = '    JS      '
+const myString = '    JS      '.trim()
+
+console.log(myString)
 
 /*
   02
@@ -23,6 +25,11 @@ const people = [
   { firstName: 'Eric', lastName: 'Silva', score: 82 }
 ]
 
+const peopleOrderedByScore = people.map(item => item)
+  .sort((people1, people2) => people1.score - people2.score)
+
+console.log(people,peopleOrderedByScore)
+
 /*
   03
 
@@ -35,6 +42,8 @@ const people = [
 
 const animals = ['cão', 'gato', 'boi', 'leão', 'gnu', 'alce', 'ema']
 
+const threeLettersAnimals = animals.filter(animal => animal.length === 3)
+
 /*
   04
 
@@ -42,7 +51,7 @@ const animals = ['cão', 'gato', 'boi', 'leão', 'gnu', 'alce', 'ema']
     nome de cada animal. Ex.: [6, 8, 2].
 */
 
-
+const animalLetters = animals.map(animal => animal.length)
 
 /*
   05
@@ -60,7 +69,7 @@ const friends = [
   { id: 5, name: 'Solange', nearMe: false }
 ]
 
-
+const friendsNearMe = friends.filter(({ nearMe }) => nearMe).map(({ name }) => name)
 
 /*
   06
@@ -70,6 +79,8 @@ const friends = [
 */
 
 const numbers = [46, 86, 212, 29, 51, 9, 25, 42, 81]
+const oddNumbersSum = numbers.filter(number => number % 2 === 1)
+  .reduce((acc, number) => acc += number, 0)
 
 /*
   07
@@ -91,3 +102,6 @@ const data = [{
   country: 'Indonesia',
   population: 263991379
 }]
+
+const sumDataWithOutChina = data.filter(({ country }) => country !== 'China')
+  .reduce((acc, { population }) => acc += population, 0)
