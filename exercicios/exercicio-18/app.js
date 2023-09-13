@@ -21,76 +21,49 @@
   Dica: pesquise pelo método "insertAdjacentElement", no MDN;
 */
 
-const inputUsername = document.querySelector('#username')
 const form = document.querySelector('form')
-const button = document.querySelector('.button')
-
-const InputFeedback = document.createElement('p')
+const usernameFeedback = document.createElement('p')
 const submitFeedback = document.createElement('p')
+const button = document.querySelector('button')
+const regex = /^[a-zA-Z]{6,}$/
 
-inputUsername.insertAdjacentElement('afterend', InputFeedback)
+form.username.insertAdjacentElement('afterend', usernameFeedback)
 button.insertAdjacentElement('afterend', submitFeedback)
 
-const testRegex = element => /^[a-zA-Z]{6,}$/.test(element)
+const insertInputFeedback = event => {
+  const   inputValue = event.target.value
 
-const inputInvalidUsername = {
-  paragraph: InputFeedback,
-  className: 'username-help-feedback',
-  message: 'O valor deve conter no mínimo 6 caracteres, com apenas letras maiúsculas e/ou minúsculas'
-}
-
-const inputValidUsername = {
-  paragraph: InputFeedback,
-  className: 'username-success-feedback',
-  message: 'Username válido =)'
-}
-
-const submitInvalidUsername = {
-  paragraph: submitFeedback,
-  className: 'submit-help-feedback',
-  message: 'Por favor, insira um username válido'
-}
-
-const submitValidUsername = {
-  paragraph: submitFeedback,
-  className: 'submit-success-feedback',
-  message: 'Dados enviados =)'
-}
-
-const feedback = ({ paragraph, className, message }) => {
-  paragraph.setAttribute('class', className)
-  paragraph.textContent = message
-}
-
-
-const showInputInfo = event => {
-  submitFeedback.textContent = ''
-
-  const usernameTest = testRegex(event.target.value)
-
-  if(!usernameTest) {
-    feedback(inputInvalidUsername)
+  if(regex.test(inputValue)) {
+    usernameFeedback.setAttribute('class', 'username-success-feedback')
+    usernameFeedback.textContent = 'Username válido =)'
     return
   }
-  
-  feedback(inputValidUsername)
+
+  usernameFeedback.setAttribute('class', 'username-help-feedback')
+  usernameFeedback.textContent ='O valor deve conter no mínimo 6 caracteres, com apenas letras maiúsculas e/ou minúsculas'
+
+  if(inputValue === '') {
+    usernameFeedback.textContent = ''
+  }
 }
 
-const showSubmitInfo = event => {
+const insertSubmitFeedback = event => {
   event.preventDefault()
+  const inputValue = event.target.username.value
 
-  const usernameTest = testRegex(inputUsername.value)
-
-  if(!usernameTest) {
-    feedback(submitInvalidUsername)
+  if(regex.test(inputValue)) {
+    submitFeedback.setAttribute('class', 'submit-success-feedback')
+    submitFeedback.textContent = "Dados enviados =)"
     return
   }
-  
-  feedback(submitValidUsername)
+
+  submitFeedback.setAttribute('class', 'submit-help-feedback')
+  submitFeedback.textContent = "Por favor, insira um username válido"
 }
 
-inputUsername.addEventListener('input', showInputInfo)
-form.addEventListener('submit', showSubmitInfo)
+form.username.addEventListener('input', insertInputFeedback)
+
+form.addEventListener('submit', insertSubmitFeedback)
 
 /*
   02
@@ -117,14 +90,17 @@ form.addEventListener('submit', showSubmitInfo)
   - Se você não se lembra como o método some funciona, há 2 opções:
     1) Reassistir às seguintes aulas:
       - "Desenvolvendo um popup" - Aula 04-04 da etapa 5;
-      - "Correção dos exercícios da aula 04 da etapa 05" - Aula 01-01 da etapa 
+      - "Correção dos exercícios da aula 04 da etapa 05" - Aula 01-01 da etapa  
         6;
     2) Pesquisar no MDN.
 */
 
-const some = (array, func) => {
+const someCopy = (array, func) => {
   for(let i = 0; i < array.length; i++) {
-    if(func(array[i])) {
+    const item = array[i]
+    const result = func(item)
+
+    if(result) {
       return true
     }
   }
@@ -132,5 +108,5 @@ const some = (array, func) => {
   return false
 }
 
-console.log(some([1, 2, 3], item => item > 2))
-console.log(some([1, 2, 3], item => item === 0))
+console.log(someCopy([1, 2, 3], item => item > 2))
+console.log(someCopy([1, 3, 5], item => item === 0))

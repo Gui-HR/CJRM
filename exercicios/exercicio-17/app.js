@@ -5,35 +5,21 @@
 */
 
 const form = document.querySelector('form')
+const linkText = document.querySelector('a').textContent
 
-const clearInput = () => {
-  input.value = ''
-  input.focus()
-}
-
-const logMessge = message => {
-  console.log(message)
-  clearInput()
-}
-
-const handleSubmit = event => {
-  const formRegex = /^[a-zA-Z0-9]{7,11}$/
-  const input = form.input
-  const isAValidValue = formRegex.test(input.value)
-
+form.addEventListener('submit', event => {
   event.preventDefault()
-  
-  console.log(input.value)
 
-  if(isAValidValue) {
-    logMessge("O valor inserido no input é válido =)")
+  const inputValue = event.target.input.value
+  const regex = /[a-zA-Z0-9]{7,11}/
+
+  if(regex.test(inputValue)) {
+    console.log("O valor inserido no input é válido =)")
     return
-  }  
+  }
 
-  logMessge("Valor inválido =(")
-}
-
-form.addEventListener('submit', handleSubmit)
+  console.log("Valor inválido =(")
+})
 
 /*
   02
@@ -50,10 +36,8 @@ form.addEventListener('submit', handleSubmit)
   - Exiba no console o boolean no qual este teste resulta.
 */
 
-const p = document.querySelector('p').textContent
 const regex = /documentation/
-
-console.log(regex.test(p))
+console.log(regex.test(linkText))
 
 /*
   04
@@ -64,10 +48,9 @@ console.log(regex.test(p))
 */
 
 const B99message = 'E o Terry Crews faz tudo, inclusive tocar a abertura de B99 na flauta'
-const secondRegex = /[A-Z0-9]{3}/
-const B99Result = secondRegex.test(B99message)
 
-console.log(B99Result)
+const regexB99 = /[A-Z0-9]{3}/
+console.log(regexB99.test(B99message))
 
 /*
   05

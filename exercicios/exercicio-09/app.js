@@ -12,18 +12,13 @@
   - Converta a função abaixo em uma arrow function e utilize-a para exibir um  
     valor no console.
 */
-console.log('Exercicio 01 \n')
 
 // function convertToString (value) {
 //   return String(value)
 // }
 
 const convertToString = value => String(value)
-const number = 35
-const numberToString = convertToString(number)
-
-console.log(number, typeof number, numberToString, typeof numberToString)
-console.log('--------------------------')
+console.log(convertToString(false))
 
 /*
   02
@@ -31,13 +26,9 @@ console.log('--------------------------')
   - Crie uma função que retorne a quantidade de caracteres que uma string  
     recebida por parâmetro possui.
 */
-console.log('Exercicio 02 \n')
 
-const stringLength = string => string.length
-
-console.log(stringLength('Aroungueijo'))
-console.log('--------------------------')
-
+const howManyCharacters = string => string.length
+console.log(howManyCharacters('Jureminha'))
 
 /*
   03
@@ -48,13 +39,10 @@ console.log('--------------------------')
 
   "CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO"
 */
-console.log('Exercicio 03 \n')
 
-const lowerCase = string => string.toLowerCase()
-const sentence = 'CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO'
-
-console.log(lowerCase(sentence))
-console.log('--------------------------')
+const convertToLowerCase = string => string.toLowerCase()
+const sentence = "CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO"
+console.log(convertToLowerCase(sentence))
 
 /*
   04
@@ -62,12 +50,9 @@ console.log('--------------------------')
   - Crie uma função que recebe 2 parâmetros: um caractere e uma string;
   - Ao ser invocada, a função deve retornar o index do caractere na string.
 */
-console.log('Exercicio 04 \n')
 
-const indexCharacter = (string, character) => string.indexOf(character)
-
-console.log(indexCharacter('Obg russo doido', 'o'))
-console.log('--------------------------')
+const indexOfString = (character, string) => string.indexOf(character)
+console.log(indexOfString('h', 'jureminhas'))
 
 /*
   05
@@ -75,14 +60,10 @@ console.log('--------------------------')
   - Crie uma função que, ao ser invocada, retorna um boolean indicando se o item  
     passado por argumento existe no array (também passado por argumento).
 */
-console.log('Exercicio 05 \n')
 
-const poor = ['Salário mínimo', 'Aluguel', 'SERASA', 'Favela', 'Casa?', 'Mendingo']
-
-const verifyItem = (item, array) => array.includes(item)
-
-console.log(verifyItem('Salário mínimo', poor))
-console.log('--------------------------')
+const includesCopy = (item, array) => array.includes(item)
+const juremihnaUniverse = ['jureminha', 'juremo', 'juremosa', 'juremones']
+console.log(includesCopy('jureminha', juremihnaUniverse))
 
 /*
   06
@@ -90,14 +71,9 @@ console.log('--------------------------')
   - Crie uma função que retorna a concatenação de 2 arrays, passados como  
     argumentos em sua invocação;
 */
-console.log('Exercicio 06 \n')
 
-const rich = ['Dinheiro', 'Empregados', 'Burguês', 'Ferrari', 'Mansão']
-
-const concatenateArray = (firstArray, secondArray) => firstArray.concat(secondArray)
-
-console.log(concatenateArray(poor, rich))
-console.log('--------------------------')
+const concatCopy = (array1, array2) => array1.concat(array2)
+console.log(concatCopy([1,2,3], [4,5,6]))
 
 /*
   07
@@ -105,17 +81,12 @@ console.log('--------------------------')
   - Crie uma função que retorna o array passado como argumento em sua invocação,  
     mas com o último item removido.
 */
-console.log('Exercicio 07 \n')
 
-const games = ['Hollow Knight', 'Enter the Gungeon', 'Celeste', 'Rocket League', 'League of Legens']
-
-const removeLastItem = (array) => {
+const popCopy = array => {
   array.pop()
   return array
 }
-
-console.log(removeLastItem(games))
-console.log('--------------------------')
+console.log(popCopy([1,2,3,4,5,6]))
 
 /*
   08
@@ -123,12 +94,9 @@ console.log('--------------------------')
   - Crie uma função que retorna se o valor passado como argumento em sua  
     invocação é null.
 */
-console.log('Exercicio 08 \n')
 
-const isANull = value => value === null
-
-console.log(isANull(null))
-console.log('--------------------------')
+const isNull = value => value === null
+console.log(isNull(1))
 
 /*
   09
@@ -140,14 +108,11 @@ console.log('--------------------------')
     argumento a função que exibe seu nome no console e veja se o nome realmente  
     foi exibido.
 */
-console.log('Exercicio 09 \n')
 
-const functionInvocator = callback => callback()
-const showYourName = () => console.log('Seu nome')
+const showMyName = () => console.log('Gilerme')
+const executeCallback = func => func()
 
-functionInvocator(showYourName)
-
-console.log('--------------------------')
+executeCallback(showMyName)
 
 /*
   10
@@ -159,13 +124,10 @@ console.log('--------------------------')
   - Faça com que a invocação da função descrita no 1º item deste exercício (10)  
     resulte no triplo de 33.
 */
-console.log('Exercicio 10 \n')
 
-const SecondfunctionInvocator = (value, callback) => callback(value)
-const tripleValue = value => value * 3
-
-console.log(SecondfunctionInvocator(33 ,tripleValue))
-console.log('--------------------------')
+const triple = number => number * 3
+const executeCallback2 = func => func(33)
+console.log(executeCallback2(triple))
 
 /*
   11
@@ -175,18 +137,12 @@ console.log('--------------------------')
   
   "O Xº item do array [X, X, X] é X."
 */
-console.log('Exercicio 11 \n')
 
 const numbers = [1, 2, 3]
-const showNumbersInfo = (item, index, array) => {
-  const itemPosition = index + 1
-  const itens = array.join(', ')
-  console.log(`O ${itemPosition}º item do array [${itens}] é ${item}.`)
-}
 
-numbers.forEach(showNumbersInfo)
-
-console.log('--------------------------')
+numbers.forEach((number, index, array) => {
+  console.log(`O ${index + 1}º item do array ${numbers} é ${number}.`)
+})
 
 /*
   12
@@ -195,7 +151,6 @@ console.log('--------------------------')
   - Após a conversão, verifique se a cópia do array lettersCopy realmente foi  
     criada.
 */
-console.log('Exercicio 12 \n')
 
 const letters = ['v', 'e', 'p']
 let lettersCopy = []
@@ -204,10 +159,11 @@ let lettersCopy = []
 //   lettersCopy.push(letters[i])
 // }
 
-letters.forEach(letter => lettersCopy.push(letter))
+letters.forEach(item => {
+  lettersCopy.push(item)
+})
 
 console.log(lettersCopy)
-console.log('--------------------------')
 
 /*
   13
@@ -227,7 +183,7 @@ console.log('--------------------------')
   </article>
 */
 
-// const section = document.querySelector('[data-js="section"]')
+const section = document.querySelector('[data-js="section"]')
 
 const review = [
   'Eu sempre adorei o filme e quando descobri que tinha o livro também fiquei doido. Demorei um pouco mas acabei comprando e finalmente li \o/.',
@@ -236,11 +192,13 @@ const review = [
   'Recomendo esse livro pra quem curte uma boa história de ficção. Apesar de muita gente pensar que o livro não tem graça, porque o legal mesmo é ver o dinossauro no filme, com todos os efeitos especiais, eu digo pra deixar esse pensamento de lado, pois a história é tão bem contada e os detalhes são tão bem relatados, que você passa a fazer parte da história, e vive todas as emoções hahaha.'
 ]
 
-// let paragraphs = ''
+let paragraphs = ''
 
-// review.forEach( review => {paragraphs += `<p>${review}</p>`})
+review.forEach(item => {
+  paragraphs += `<p>${item}</p>`
+})
 
-// section.innerHTML = paragraphs
+section.innerHTML = paragraphs
 
 /*
   14
@@ -262,37 +220,24 @@ const review = [
     pelo restante da quantidade de pessoas que curtiram o post (além das duas  
     pessoas já mencionadas no início da mensagem).
 */
-console.log('Exercicio 14 \n')
 
-const postLikes = ['Rafael', 'Leonardo', 'Donatelo', 'Mikelangelo']
-
-const showLikes = whoLiked => {
-  const howManyLikes = whoLiked.length
-  const firstLike = whoLiked[0]
-  const secondLike = whoLiked[1]
-  const thirdLike = whoLiked[2]
-
-  switch (howManyLikes) {
+const showWhoLiked = array => {
+  switch (array.length) {
     case 0:
-      console.log("Ninguém curtiu isso")
-      break
+      return "Ninguém curtiu isso"
 
-    case 1:
-      console.log(`${firstLike} curtiu isso`)
-      break
+      case 1:
+      return `${array[0]} curtiu isso`
+  
+      case 2:
+      return `${array[0]} e ${array[1]} curtiram isso`
 
-    case 2:
-      console.log(`${firstLike} e ${secondLike} curtiram isso`)
-      break
+      case 3:
+      return `${array[0]}, ${array[1]} e ${array[2]} curtiram isso`
 
-    case 3:
-      console.log(`${firstLike}, ${secondLike} e ${thirdLike} curtiram isso`)
-      break
-    
     default:
-      console.log(`${firstLike}, ${secondLike} e mais ${howManyLikes - 2} curtiram isso`)
+      return `${array[0]}, ${array[1]} e mais ${array.length - 2} pessoas curtiram isso`
   }
 }
 
-showLikes(postLikes)
-
+console.log(showWhoLiked(['Jureminha']))

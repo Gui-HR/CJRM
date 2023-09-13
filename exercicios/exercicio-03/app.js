@@ -1,4 +1,4 @@
-/* FEITO
+/*
 01 - No index.html deste diretório (exercicio-03):
 
 - Declare uma marcação HTML básica;
@@ -6,13 +6,13 @@
 - Inicie o seu servidor local e abra o console do browser.
 */
 
-/* FEITO
+/*
 02 - Armazene um array vazio em uma let "brazilianFoods";
 */
+let brazilianFoods = []
 
-const brazilianFoods = []
 
-/* FEITO
+/*
 03 - Use o método adequado para adicionar os 3 seguintes itens ao array:
 
 - Coxinha
@@ -23,9 +23,9 @@ const brazilianFoods = []
 */
 
 brazilianFoods.push('Coxinha', null, 'Brigadeiro')
-// console.log(brazilianFoods)
+console.log(brazilianFoods)
 
-/* FEITO
+/*
 04 - Comente o console.log acima e:
 
 - Através de uma reatribuição de valor, faça com que o 2º item do  
@@ -34,9 +34,9 @@ array "brazilianFoods" (null) seja substituído por "Pão de Queijo";
 */
 
 brazilianFoods[1] = 'Pão de Queijo'
-// console.log(brazilianFoods[1])
+console.log(brazilianFoods[1])
 
-/* FEITO
+/*
 05 - Comente o console.log acima e:
 
 - Armazene em uma const "foodsInfo" a seguinte string: "Até aqui, o  
@@ -49,10 +49,10 @@ mas sem digitar os nomes das comidas diretamente;
 - Exiba a foodsInfo no console.
 */
 
-const foodsInfo = `Até aqui, o array "brazilianFoods" possui ${brazilianFoods.length} itens: ${brazilianFoods[0]}, ${brazilianFoods[1]}, ${brazilianFoods[2]}`
-// console.log(foodsInfo)
+const foodsInfo = `Até aqui, o array "brazilianFoods" possui ${brazilianFoods.length} itens: ${brazilianFoods[0]}, ${brazilianFoods[1]} e ${brazilianFoods[2]}.`
+console.log(foodsInfo)
 
-/* FEITO
+/*
 06 - Comente o console.log acima e:
 
 - Armazene um array com os itens "Chico" e "Zeca" em uma const  
@@ -64,12 +64,12 @@ itens "Lilica" e "Matilda";
 - Exiba a "dogNames" no console.
 */
 
-const maleDogNames = ['Chico','Zeca']
+const maleDogNames = ['Chico', 'Zeca']
 const femaleDogNames = ['Lilica', 'Matilda']
 let dogNames = maleDogNames.concat(femaleDogNames)
-// console.log(dogNames)
+console.log(dogNames)
 
-/* FEITO
+/*
 07 - Comente o console.log acima e:
 
 - Exiba no console uma string com todos os itens do array  
@@ -78,9 +78,9 @@ let dogNames = maleDogNames.concat(femaleDogNames)
 - O resultado deve ser: "nome1, nome2, nome3, nome4".
 */
 
-// console.log(dogNames.join(', ')) 
+console.log(dogNames.join(', '))
 
-/* FEITO
+/*
 08 - Comente o console.log acima e:
 
 - Exiba no console o último item do array "dogNames", mas de  
@@ -94,9 +94,9 @@ agora é "Lilica".
 */
 
 dogNames.pop()
-// console.log(dogNames[dogNames.length - 1])
+console.log(dogNames[dogNames.length -1])
 
-/* FEITO
+/*
 09 - Comente o console.log acima e:
 
 - Adicione o item "Nina" no final do array "dogNames", utilizando  
@@ -109,19 +109,19 @@ apenas as letras iniciais dos nomes do array "dogNames";
 */
 
 dogNames.push('Nina')
-const initials = `${dogNames[0][0]}${dogNames[1][0]}${dogNames[2][0]}${dogNames[3][0]}`
-// console.log(initials)
+const initials = `${dogNames[0].slice(0,1)}${dogNames[1].slice(0,1)}${dogNames[2].slice(0,1)}${dogNames[3].slice(0,1)}`
+console.log(initials)
 
-/* FEITO
+/*
 10 - Comente o console.log acima e:
 
 - Exiba a "initials" no console, mas com todas as letras minúsculas;
 - Utilize o método adequado para isso.
 */
 
-// console.log(initials.toLowerCase())
+console.log(initials.toLowerCase())
 
-/* FEITO
+/*
 11 - Comente o console.log acima e:
 
 - Declare uma const "dessert" e faça com que ela receba uma template  
@@ -137,10 +137,10 @@ constante que você criou.
 'A SOBREMESA é um doce à base de coco, tradicional na América Latina e em Angola.'
 */
 
-const dessert = `${dogNames[0].slice(3)}${dogNames[1].slice(2)}${dogNames[3].slice(2)}`.replace('n', 'd')
-// console.log(`A ${dessert} é um doce à base de coco, tradicional na América Latina e em Angola.`)
+const dessert = `${dogNames[0].slice(3, 5)}${dogNames[1].slice(2, 4)}${dogNames[3].slice(2, 4)}`.replace('n', 'd')
+console.log(`A ${dessert} é um doce à base de coco, tradicional na América Latina e em Angola.`)
 
-/* FEITO
+/*
 12 - Comente o console.log acima e:
 
 - Declare um array com os números 3, 5, e 7 e o armazene em uma let  
@@ -155,4 +155,4 @@ já tem, mais 4;
 
 let oddNumbers = [3, 5, 7]
 oddNumbers[1] += 4
-// console.log(oddNumbers[1] ** 3)
+console.log(oddNumbers[1] ** 3)

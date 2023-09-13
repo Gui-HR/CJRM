@@ -26,14 +26,14 @@
 const fruits = ['morango', 'banana', 'mamão']
 
 if(fruits.includes('abacaxi')) {
-  console.log("A string 'abacaxi' existe no array fruits.")
-} else if(fruits.includes('pera')) {
-  console.log("A string 'pera' existe no array fruits.")
+  console.log('A string "abacaxi" existe no array fruits.')
+} else if(fruits.includes('abacaxi')) {
+  console.log(`A string "pera" existe no array fruits.`)
 } else {
-  console.log("Nem pera nem abacaxi existem no array 'fruits'.")
+  console.log(`Nem pera nem abacaxi existem no array "fruits".`)
 }
-  
-  /*
+
+/*
   02
 
   - Armazene em uma constante apenas a hora atual na qual você está fazendo este  
@@ -46,13 +46,11 @@ if(fruits.includes('abacaxi')) {
   lógico precisam ter a constante especificada. Exemplo: hour > x && hour < y.
 */
 
-const hour = 18
-const isMorning = hour >= 6 && hour <= 11
-const isAfternoon = hour >= 12 && hour <= 17
+const hour = 17
 
-if(isMorning) {
-  console.log('Bom dia!')
-} else if(isAfternoon) {
+if(hour > 6 && hour <= 12) {
+  console.log('Bom dia!');
+} else if(hour > 12 && hour < 18) {
   console.log('Boa tarde!')
 } else {
   console.log('Boa noite!')
@@ -73,18 +71,12 @@ if(isMorning) {
 */
 
 const age = 19
-let result = null
-const isChild = age <= 7
-const isOlder = age >= 65
 
-if(isChild || isOlder) {
-  result = 'Para você, a entrada é grátis!'
-} else {
-  result = 'A entrada é R$: 30,00.'
+if(age <= 7 || age >= 65)  {
+  console.log('Para você, a entrada é grátis!')
+} else{
+  console.log('A entrada é R$ 30,00.')
 }
-
-console.log(result)
-
 
 /*
   04
@@ -96,18 +88,15 @@ console.log(result)
 */
 
 const numbers = [7, 92, 34, 46, 90, 25, 11, 3, 89, 76, 99]
-let between11And90 = []
+let numbersBetween11and90 = []
 
 for(let i = 0; i < numbers.length; i++) {
-  const number = numbers[i]
-  const isNumberBetween11and90 = number >= 11 && number <= 90
-
-  if(isNumberBetween11and90) {
-    between11And90.push(numbers[i])
+  if(numbers[i] >= 11 && numbers[i] <= 90) {
+    numbersBetween11and90.push(numbers[i])
   }
 }
 
-console.log(between11And90)
+console.log(numbersBetween11and90)
 
 /*
   05
@@ -123,25 +112,21 @@ console.log(between11And90)
 */
 
 const crazyArray = [true, 869, 'oi', 71, false, 83, '35', true, 397, 'js', false]
-let booleans = 0
-let number = 0
-let strings = 0
+let stringsAmount = 0
+let numbersAmount = 0
+let booleansAmout = 0
 
 for(let i = 0; i < crazyArray.length; i++) {
-  const typeofItem = typeof crazyArray[i]
-  const isItemANumber = typeofItem === "number"
-  const isItemAString = typeofItem === 'string'
-
-  if(isItemAString) {
-    strings++
-  } else if (isItemANumber) {
-    number++
+  if(typeof crazyArray[i] === 'string') {
+    stringsAmount++
+  } else if(typeof crazyArray[i] === 'number') {
+    numbersAmount++
   } else {
-    booleans++
+    booleansAmout++
   }
 }
 
-console.log(`O crazyArray tem ${booleans} booleans, ${number} números e ${strings} strings.`)
+console.log(`O crazyArray tem ${booleansAmout} booleans, ${numbersAmount} números e ${stringsAmount} strings.`)
 
 /*
   06
@@ -165,17 +150,17 @@ let oddNumbers = []
 let evenNumbers = []
 
 for(let i = 0; i < randomNumbers.length; i++) {
-  const isEvenNumber = randomNumbers[i] % 2 === 0
-  const number = randomNumbers[i]
-
-  if (isEvenNumber) {
-    evenNumbers.push(number)
+  const actualNumber = randomNumbers[i]
+  if(actualNumber % 2) {
+    oddNumbers.push(actualNumber)
   } else {
-    oddNumbers.push(number)
+    evenNumbers.push(actualNumber)
   }
 }
 
-const oddNumbersString = oddNumbers.join(', ').replace(', 3', ' e 3')
-const evenNumbersString = evenNumbers.join(', ').replace(', 5', ' e 5')
+const oddNumbersLastNumber = oddNumbers[oddNumbers.length - 1]
+const oddNumbersString = oddNumbers.join(', ').replace(`, ${oddNumbersLastNumber}`, ` e ${oddNumbersLastNumber}`)
+const evenNumbersLastNumber = evenNumbers[evenNumbers.length - 1]
+const evenNumbersString = evenNumbers.join(', ').replace(`, ${evenNumbersLastNumber}`, ` e ${evenNumbersLastNumber}`)
 
 console.log(`Numeros ímpares: ${oddNumbersString}. Números pares: ${evenNumbersString}.`)

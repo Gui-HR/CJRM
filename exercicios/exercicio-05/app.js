@@ -7,7 +7,7 @@
   - E só então, levante o servidor novamente.
 */
 
-/* FEITO
+/*
   01
 
   - Utilizando um while loop, exiba no console todos os números entre 0 e 5,  
@@ -23,22 +23,22 @@
 
 // let i = 0
 
-// while (i <= 5) {
+// while(i <= 5) {
 //   console.log(i)
 //   i++
 // }
 
-/* FEITO
+/*
   02 - Comente a declaração da let e o loop acima e:
 
   - Utilizando um for loop, faça o mesmo que foi pedido no exercício 01.
 */
 
-// for (let i = 0; i <= 5; i++) {
-//   console.log(i);
+// for(let i = 0; i <= 5; i++) {
+//   console.log(i)
 // }
 
-/* FEITO
+/*
   03 - Comente o loop acima e:
 
   - Escreva um loop (for ou while) que exiba a frase abaixo no console;
@@ -49,11 +49,11 @@
   "Esta é a Xª vez que esta frase é exibida no console."
 */
 
-// for (let i = 1; i <= 10; i++) {
+// for(let i = 1; i <= 10; i++) {
 //   console.log(`Esta é a ${i}ª vez que esta frase é exibida no console.`)
 // }
 
-/* FEITO
+/*
   04 - Comente o loop acima e:
 
   - Abaixo da constante "cities", declare uma let "upperCaseCities" e atribua à  
@@ -66,7 +66,7 @@
 const cities = ['São Paulo', 'Rio de Janeiro', 'Minas Gerais']
 let upperCaseCities = []
 
-for (let i = 0; i < cities.length; i++) {
+for(let i = 0; i < cities.length; i++) {
   upperCaseCities.push(cities[i].toUpperCase())
 }
 
@@ -84,11 +84,11 @@ for (let i = 0; i < cities.length; i++) {
 const names = ['João Grilo', 'Chicó', 'Rosinha']
 let templateHTML = ''
 
-for (let i = 0; i < names.length; i++) {
-  templateHTML += `<li>${names[i]}</li>`
+for(let i = 0; i < names.length; i++) {
+  templateHTML += `<li>${names[i]}</li>` 
 }
 
-// console.log(templateHTML)
+console.log(templateHTML)
 
 /*
   06 - Comente o console.log acima e:
@@ -100,13 +100,13 @@ for (let i = 0; i < names.length; i++) {
 */
 
 const numbers = ['91', '5', '30', '97', '83', '31']
-let sum = 0
+let numbersSum = 0
 
-for (let i = 0; i < numbers.length; i++) {
-  sum += Number(numbers[i])
+for(let i = 0; i < numbers.length; i++) {
+  numbersSum += numbers[i]
 }
 
-// console.log(sum === 337)
+console.log(numbersSum === 337)
 
 /*
   07 - Comente o console.log acima.
@@ -133,12 +133,9 @@ const arrays = [
   [2, 8, 4]
 ]
 
-let total = 0
-
-for (let i = 0; i < arrays.length; i++) {
-  for (let v = 0; v < arrays[i].length; v++) {
-    total += arrays[i][v]
+let arraysSum = 0
+for(let i = 0; i < arrays.length; i++) {
+  for(let v = 0; v < arrays[v].length; v++) {
+    arraysSum += arrays[i][v]
   }
 }
-
-console.log(total)

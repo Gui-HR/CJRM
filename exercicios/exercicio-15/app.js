@@ -6,17 +6,14 @@
   - Exiba no console os elementos filhos da ul com a classe já inserida.
 */
 
-const ul = document.querySelector('ul')
-const lis = Array.from(ul.children)
+const ul = document.querySelector('.videos')
+const videosLi = Array.from(ul.children)
 
+const setVideoClass = element => {
+  element.setAttribute('class', 'video')
+  console.log(element)}
 
- const insertVideoCLass = li => {
-  li.classList.add('video')
-}
-
-lis.forEach(insertVideoCLass)
-
-console.log(lis)
+videosLi.forEach(setVideoClass)
 
 /*
   02
@@ -26,7 +23,6 @@ console.log(lis)
 */
 
 const h2 = document.querySelector('h2')
-
 console.log(h2.parentElement)
 
 /*
@@ -36,7 +32,6 @@ console.log(h2.parentElement)
 */
 
 const h1 = document.querySelector('h1')
-
 console.log(h1.nextElementSibling)
 
 /*
@@ -54,15 +49,12 @@ console.log(ul.previousElementSibling)
     exibida no console.
 */
 
-const showClickedLi = event => {
-  console.log(event.target)
+const showClickedElement = event => {
+  const clickedElement = event.target
+  console.log(clickedElement)
 }
 
-const addClickEvent = li => {
-  li.addEventListener('click', showClickedLi) 
-}
-
-lis.forEach(addClickEvent )
+ul.addEventListener('click', showClickedElement)
 
 /*
   06
@@ -82,21 +74,12 @@ const videos = [{
   length: '00:02:55'
 }]
 
-
 const button = document.querySelector('button')
-
-const insertVideoLi = ({ name }) => {
-  const newVideo = document.createElement('li')
-
-  newVideo.textContent = name
-  ul.append(newVideo)
+const addNewVideos = () => {
+  videos.forEach(video => ul.innerHTML += `<li>${video.name}</li>`)
 }
 
-const handleClickButtin = () => {
-  videos.forEach( )
-}
-
-button.addEventListener('click', handleClickButtin)
+button.addEventListener('click', addNewVideos)
 
 /*
   07
@@ -105,15 +88,9 @@ button.addEventListener('click', handleClickButtin)
     sejam removidos.
 */
 
-const body = document.body
-const bodyChildren = Array.from(body.children)
-
-const removeChildren = children => {
-  children.remove()
+const body = document.querySelector('body')
+const removeAllBodychildren = () => {
+  body.innerHTML = ''
 }
 
-const removeBodyAllChildren = () => {
-  bodyChildren.forEach(removeChildren)
-}
-
-h1.addEventListener('click', removeBodyAllChildren)
+h1.addEventListener('click', removeAllBodychildren)

@@ -11,33 +11,32 @@ const h2 = document.querySelector('h2')
 const egg = document.querySelector('.egg')
 const button = document.querySelector('button')
 
-const showClickedElement = ({ target }) => {
-  const clickedElementName = target.tagName.toLowerCase()
+elementsInsideDiv.forEach(element => {
+  element.addEventListener('click', event => {
+    const clickedElement = event.target.nodeName.toLowerCase()
+    
+    h2.textContent = `Clicou no ${clickedElement}, filho da div.`
 
-  if(clickedElementName === 'div') {
-    h2.textContent = 'Clicou na div.'
-    return
-  }
+    event.stopPropagation()
+  })
+})
 
-  h2.textContent = `Clicou no ${clickedElementName}, filho da div.`
-}
+div.addEventListener('click', () => {
+  h2.textContent = `Clicou na div`
+})
 
-const logCopyMessage = () => {
+
+h2.addEventListener('copy', () => {
   console.log("Texto copiado!")
-}
+})
 
-const showMousePosition = ({ offsetX, offsetY }) => {
-  egg.textContent = `Eixo X: ${offsetX} | Eixo Y: ${offsetY}`
-}
+egg.addEventListener('mousemove', event => {
+  egg.textContent = `Eixo X: ${event.offsetX} | Eixo Y: ${event.offsetY}`
+})
 
-const changeEggColor = () => {
+button.addEventListener('click', () => {
   egg.style.backgroundColor = "lightgoldenrodyellow"
-}
-
-div.addEventListener('click', showClickedElement)
-h2.addEventListener('copy', logCopyMessage)
-egg.addEventListener('mousemove', showMousePosition)
-button.addEventListener('click', changeEggColor)
+})
 
 /*
   02
@@ -98,15 +97,8 @@ const people = [
   { id: 9, name: 'Hamilton Silva', profession: 'Advogado' }
 ]
 
-// people.forEach(({ profession }) => {
-//   if (profession === 'Front-end developer') {
-//     console.log("O array people contém, no mínimo, um(a) Front-end developer.")
-//     return
-//   }
-// })
-
-const isSomeFrontendDeveloper = people.some(({ profession }) => profession === 'Front-end developer')
-
-if (isSomeFrontendDeveloper) {
-  console.log("O array people contém, no mínimo, um(a) Front-end developer.")
-}
+people.forEach(person => {
+  if(person.profession === 'Front-end developer') {
+    console.log(`O array people contém, no mínimo, um(a) Front-end developer.`)
+  }
+})

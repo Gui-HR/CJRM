@@ -7,20 +7,15 @@
 
   "NOME_DO_GATO é um gato COR_DO_GATO de IDADE_DO_GATO anos."
 */
-console.log('Exercícicos 01\n')
 
 const getCatInfo = () => {
   const name = 'Marcos'
   let age = 3
   const color = 'Cinza'
-
-  return {name, age, color}
+  return [name, age, color]
 }
 
-const { namen, age, color} = getCatInfo()
-
-console.log(`${namen} é um gato ${color} de ${age} anos.`)
-console.log('------------------')
+console.log(getCatInfo())
 
 /*
   02
@@ -29,25 +24,20 @@ console.log('------------------')
     exibir no console a string que a const movie armazena, com todas as letras  
     maiúsculas.
 */
-console.log('Exercícicos 02\n')
 
-const externaly = () => {
+const external = () => {
   const movie = 'Parasite'
 
   const internal = () => {
     const extraInternal = () => {
       console.log(movie.toUpperCase())
     }
-
     extraInternal()
   }
-
   internal()
 }
 
-externaly()
-
-console.log('------------------')
+external()
 
 /*
   03
@@ -57,13 +47,9 @@ console.log('------------------')
 
   Dica: procure pelo método reverse, no MDN.
 */
-console.log('Exercícicos 3\n')
 
 let randomNumbers = [3, 2, 1]
-const invertedRandomNumbers = randomNumbers.reverse()
-
-console.log(`invertedRandomNumbers = ${invertedRandomNumbers} e randomNumbers = ${randomNumbers}`)
-console.log('------------------')
+console.log(randomNumbers.reverse())
 
 /*
   04
@@ -72,7 +58,6 @@ console.log('------------------')
 
   Dica: procure pelo método shift, no MDN.
 */
-console.log('Exercícicos 4\n')
 
 let crazyArray = [
   { prop1: '1', prop2: '2' },
@@ -81,9 +66,7 @@ let crazyArray = [
 ]
 
 crazyArray.shift()
-
 console.log(crazyArray)
-console.log('------------------')
 
 /*
   05
@@ -93,7 +76,6 @@ console.log('------------------')
 
   Dica: procure pelo método find, no MDN.
 */
-console.log('Exercícicos 5\n')
 
 const dogs = [
   { name: 'Olivia', age: 3, gender: 'Female', breed: 'Maltês' },
@@ -103,10 +85,8 @@ const dogs = [
   { name: 'Xica', age: 6, gender: 'Female', breed: 'Chihuahua' }
 ]
 
-const zequinha = dogs.find((dog) => dog.name === 'Zequinha')
-
+const zequinha = dogs.find(dog => dog.name === 'Zequinha')
 console.log(zequinha)
-console.log('------------------')
 
 /*
   06
@@ -139,12 +119,10 @@ console.log('------------------')
     </article>
   </section>
 */
-console.log('Exercícicos 6\n')
 
-const mainTitle = document.querySelector('.main-title')
+const title = document.querySelector('.main-title')
+console.log(title)
 
-console.log(mainTitle)
-console.log('------------------')
 
 /*
   07
@@ -153,9 +131,6 @@ console.log('------------------')
     página, através da classe deles;
   - Exiba esse NodeList no console.
 */
-console.log('Exercícicos 7\n')
 
 const secondaryTitles = document.querySelectorAll('.secondary-title')
-
 console.log(secondaryTitles)
-console.log('------------------')

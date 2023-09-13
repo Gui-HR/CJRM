@@ -9,19 +9,14 @@
     - sound, que é um método que retorna o miado do gato.
   - Exiba o objeto no console.
 */
-console.log('Exercício 01 \n')
 
 const cat = {
-  name: 'Lynx',
+  name: 'Junin',
   age: 1,
   color: 'Gray',
-  bestFriends: ['Juninho', 'Franklyn'],
-  sound: function () {
-    return 'Nyan, it ni san Nyan, Arigato!'
-  }
+  bestFriends: ['Banguela', 'Nami'],
+  sound: () => 'nyan'
 }
-
-console.log('-----------------------')
 
 /*
   02
@@ -31,23 +26,17 @@ console.log('-----------------------')
 
   Até aqui, o objeto "cat" possui as seguintes propriedades e valores: "name", que recebeu "X", "age", que recebeu "X", "color", que recebeu "X", "bestFriends", que recebeu um array com os itens "X" e "X", e "sound", que recebeu uma função que retorna "X".
 */
-console.log('Exercício 02 \n')
 
-console.log(`Até aqui, o objeto "cat" possui as seguintes propriedades e valores: "name", que recebeu "${cat.name}", "age", que recebeu "${cat.age}", "color", que recebeu "${cat.color}" "bestFriends", que recebeu um array com os itens "${cat.bestFriends[0]}" e "${cat.bestFriends[1]}", e "sound", que recebeu uma função que retorna "${cat.sound()}".`)
-
-console.log('-----------------------')
+console.log(`Até aqui, o objeto "cat" possui as seguintes propriedades e valores: "name", que recebeu "${cat.name}", "age", que recebeu "${cat.age}", "color", que recebeu "${cat.color}", "bestFriends", que recebeu um array com os itens "${cat.bestFriends[0]}" e "${cat.bestFriends[1]}", e "sound", que recebeu uma função que retorna "${cat.sound()}".`)
 
 /*
   03
 
   - Adicione 2 anos à idade do gato e exiba a idade atualizada no console.
 */
-console.log('Exercício 03 \n')
 
 cat.age += 2
-
-console.log(cat.age);
-console.log('-----------------------')
+console.log(cat.age)
 
 /*
   04
@@ -56,16 +45,10 @@ console.log('-----------------------')
   - Exiba o array de amigos no console para verificar se o novo amigo(a) foi  
     adicionado.
 */
-console.log('Exercício 04 \n')
 
-const newCatBestFriend = (newBestFriend) => {
-  cat.bestFriends.push(newBestFriend)
-}
-
-newCatBestFriend('Banguela')
-
+const newCatsFriend = catName => cat.bestFriends.push(catName)
+newCatsFriend('Jureminha')
 console.log(cat.bestFriends)
-console.log('-----------------------')
 
 /*
   05
@@ -75,16 +58,10 @@ console.log('-----------------------')
   - Exiba a nova cor do gato no console, também utilizando a sintaxe de  
     colchetes.
 */
-console.log('Exercício 05 \n')
 
-const newCatColor = (newColor) => {
-  cat['color'] = [cat.color, newColor]
-}
-
+const newCatColor = color => cat.color = `${cat.color} e ${color}`
 newCatColor('Black')
-
-console.log(cat['color'])
-console.log('-----------------------')
+console.log(cat.color)
 
 /*
   06
@@ -93,12 +70,9 @@ console.log('-----------------------')
     parâmetro é um objeto;
   - Utilize a função para exibir no console se "cat" é um objeto.
 */
-console.log('Exercício 06 \n')
 
-const isAObject = value => typeof value == 'object'
-
+const isAObject = value => typeof value === 'object'
 console.log(isAObject(cat))
-console.log('-----------------------')
 
 /*
   07
@@ -108,25 +82,19 @@ console.log('-----------------------')
   - Exiba a mensagem no console.
 
   "A soma das idades de NOME_DO_GATO e NOME_DO_CACHORRO é RESULTADO_DA_SOMA."
-
 */
-console.log('Exercício 07 \n')
 
 const dog = {
-  name: 'Fini',
-  age: 4,
-  color: 'White',
-  bestFriends: ['Trufa', 'Gary'],
-  sound: function() {
-    return 'Auau'
-  }
+  name: 'Trufa',
+  age: 8,
+  color: 'Branco, Preto e Caramelo',
+  bestFriends: [],
+  sound: () => 'Auau'
 }
- 
-const petMessage = (cat, dog) => `A soma das idades de ${cat.name} e ${dog.name} é ${cat.age + dog.age}.`
 
-console.log(petMessage(cat, dog))
+const petsInfo = () => `A soma das idades de ${cat.name} e ${dog.name} é ${cat.age + dog.age}.`
 
-console.log('-----------------------')
+console.log(petsInfo())
 
 /*
   08
@@ -135,20 +103,11 @@ console.log('-----------------------')
     está funcionando corretamente. Mas ela pode ser melhorada;
   - Como você refatoraria esta função?
 */
-console.log('Exercício 08 \n')
 
-// const isAnSUV = car => {
-  // if (car === 'Honda HR-V' || car === 'Jeep Renegade' || car === 'Ford EcoSport' || car === 'Hyundai iX35') {
-  //   return true
-  // }
-
-  // return false
-// }
-
-const cars = ['Honda HR-V', 'Jeep Renegade', 'Ford EcoSport', 'Hyundai iX35']
+const SUV = ['Honda HR-V', 'Jeep Renegade', 'Ford EcoSport', 'Hyundai iX35']
 
 const isAnSUV = car => {
-  if(cars.includes(car)) {
+  if (SUV.includes(car)) {
     return true
   }
 
@@ -157,7 +116,6 @@ const isAnSUV = car => {
 
 console.log(isAnSUV('Honda Civic'))
 console.log(isAnSUV('Ford EcoSport'))
-console.log('-----------------------')
 
 /*
   09
@@ -171,22 +129,17 @@ console.log('-----------------------')
     propriedades, retorne a mensagem que a propriedade armazena;
   - Teste a função, exibindo no console a mensagem de cada propriedade.
 */
-console.log('Exercício 09 \n')
 
-
-const typeVerifi = type => {
-  const types = {
+const typeInfo = (type) => {
+  const typesDescription = {
     null: 'Seta, explicitamente, uma variável sem valor.',
     undefined: 'Representa um valor não-setado.',
-    object:'Arrays, Datas, Objetos literais, Funções, etc.'
+    object: 'Arrays, Datas, Objetos literais, Funções, etc.'
   }
-  
-  return types[type]
+
+  if(typesDescription[type]) {
+    return typesDescription[type]
+  }
 }
 
-console.log(typeVerifi('null'))
-console.log(typeVerifi('undefined'))
-console.log(typeVerifi('object'))
-
-
-console.log('-----------------------')
+console.log(typeInfo(null))

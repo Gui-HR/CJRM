@@ -5,9 +5,8 @@
     maiúsculas.
 */
 
-const h1 = document.querySelector('h1')
-
-h1.textContent = h1.textContent.toLocaleUpperCase()
+const title = document.querySelector('h1')
+title.textContent = title.textContent.toLocaleUpperCase()
 
 /*
   02
@@ -18,13 +17,18 @@ h1.textContent = h1.textContent.toLocaleUpperCase()
 
 const numbers = [ 53, 24, 3, 8, 1, 6, 57, 80, 77, 98, 55 ]
 const ul = document.querySelector('.numbers')
+let lis = ''
 
+numbers.forEach(number => {
+  if(number % 2) {
+    lis += `<li style="color: lightblue">${number}</li>`
+    return
+  }
 
-const insertNumberIntoUl = number => {
-  ul.innerHTML += `<li class="number">${number}</li>`
-}
+  lis += `<li style="color: pink">${number}</li>`
+})
 
-numbers.forEach(insertNumberIntoUl)
+ul.innerHTML = lis
 
 /*
   03
@@ -34,22 +38,6 @@ numbers.forEach(insertNumberIntoUl)
     - Se o número é ímpar, exiba-o na cor "pink".
 */
 
-const liNumbers = document.querySelectorAll('.number')
-
-const changeLiColor = number => {
-  const isEven = Number(number.innerText) % 2 === 0
-
-  if(isEven) {
-    number.style.color = 'lightblue'
-    return
-  }
-  
-  number.style.color = 'pink'
-  
-}
-
-liNumbers.forEach(changeLiColor)
-
 /*
   04
 
@@ -58,9 +46,8 @@ liNumbers.forEach(changeLiColor)
   P.s: a classe "body-background" já está declarada no style.css.
 */
 
-const body = document.body
-
-body.classList.add('body-background')
+const body = document.querySelector('body')
+body.setAttribute('class', 'body-background')
 
 /*
   05
@@ -71,16 +58,13 @@ body.classList.add('body-background')
 */
 
 const link = document.querySelector('a')
-
-link.setAttribute('href', "https://github.com/roger-melo-treinamentos/curso-de-js-roger-melo")
-link.setAttribute('target', '_blank')
+link.setAttribute('href', 'https://github.com/roger-melo-treinamentos/curso-de-js-roger-melo')
 
 /*
   06
 
   - Exiba o novo valor do atributo href do link no console.
 */
-
 console.log(link.getAttribute('href'))
 
 /*
@@ -90,7 +74,7 @@ console.log(link.getAttribute('href'))
     manipuladas via JS no h1.
 */
 
-console.log(h1.style)
+console.log(title.style)
 
 /*
   08

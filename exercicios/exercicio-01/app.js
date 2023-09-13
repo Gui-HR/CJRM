@@ -1,4 +1,4 @@
-/* FEITO
+/*
 01 - Neste diretório (exercicio-01), há um index.html vazio.
 
 Faça o seguinte:
@@ -10,11 +10,11 @@ Faça o seguinte:
 - E linke este arquivo, app.js, antes do fechamento da tag body.
 */
 
-/* FEITO
+/*
 02 - Inicie o seu servidor local e abra o console do browser.
 */
 
-/* FEITO
+/*
 03 - Para certificar-se que este arquivo realmente está linkado, exiba a frase  
 "JS is Awesome!" em um alert no browser.
 
@@ -25,32 +25,32 @@ Utilize os espaços entre os comentários abaixo para executar os códigos dos
 exercícios. Inclusive o alert mencionado acima.
 */
 
-// alert('JS is Awsome!')
 
-/* FEITO
+
+/*
 04 - Comente o alert que você escreveu acima, utilizando o comentário de uma linha.
 */
 
-/* FEITO
+/*
 05 - Declare uma const "myBirthYear", que recebe o ano do seu nascimento, com 4  
 dígitos. Ex.: 1930.
 */
 
 const myBirthYear = 2004
 
-/* FEITO
+/*
 06 - Declare uma const "currentYear", que recebe o ano atual, com 4 dígitos.
 */
 
 const currentYear = 2023
 
-/* FEITO
+/*
 07 - Exiba as const "myBirthYear" e "currentYear", lado a lado, no console do browser.
 */
 
 console.log(myBirthYear, currentYear)
 
-/* FEITO
+/*
 08 - Experimente.
 
 - Declare uma const "myAge", que recebe o ano atual subtraído pelo ano do seu  
@@ -63,9 +63,9 @@ acontece.
 */
 
 const myAge = currentYear - myBirthYear
-console.log(myAge);
+console.log(myAge)
 
-/* 
+/*
 09 - Antes do console.log abaixo, declare uma const "ten", que recebe o número  
 10 e:
 

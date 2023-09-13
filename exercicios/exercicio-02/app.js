@@ -1,4 +1,4 @@
-/* FEITO
+/*
 01 - No index.html deste diretório (exercicio-02):
 
 - Declare uma marcação HTML;
@@ -8,20 +8,21 @@
 - E linke este arquivo, app.js, antes do fechamento da tag body.
 */
 
-/* FEITO
+
+
+/*
 02 - Inicie o seu servidor local e abra o console do browser.
 */
 
-/* FEITO
+/*
 03 - Exiba a string 'Grandes poderes trazem grandes responsabilidades.' no console do browser.
 
 Utilize os espaços entre os comentários abaixo para executar os códigos dos exercícios. Inclusive este.
 */
 
-const frase = 'Grandes poderes trazem grandes responsabilidades'
-// console.log(frase)
+console.log('Grandes poderes trazem grandes responsabilidades.')
 
-/* FEITO
+/*
 04 - Comente o console.log acima, e:
 
 - Armazene a palavra 'Tom' em uma constante "tom";
@@ -32,12 +33,13 @@ const frase = 'Grandes poderes trazem grandes responsabilidades'
 */
 
 const tom = 'Tom'
-const firsTom = 'Hanks'
+const firstTom = 'Hanks'
 const secondTom = 'Cruise'
-const myFavoriteTom = `${tom} ${secondTom}`
-// console.log(myFavoriteTom)
+const myFavoriteTom = 'Tom Cruise'
 
-/* FEITO
+console.log(myFavoriteTom)
+
+/*
 05 - Comente o console.log acima, e:
 
 - Armazene a palavra 'JavaScript' em uma constante "programmingLanguage";
@@ -48,9 +50,9 @@ const myFavoriteTom = `${tom} ${secondTom}`
 
 const programmingLanguage = 'JavaScript'
 const js = programmingLanguage.slice(0,1) + programmingLanguage.slice(4, 5)
-// console.log(js)
+console.log(js)
 
-/* FEITO
+/*
 06 - Comente o console.log acima, e,
 
 - Armazene, em uma constante "mdn", a junção das letras iniciais das 3 palavras que a constante "mozilla" armazena;
@@ -59,18 +61,18 @@ const js = programmingLanguage.slice(0,1) + programmingLanguage.slice(4, 5)
 */
 
 const mozilla = 'Mozilla Developer Network'
-const mdn = mozilla.slice(0,1) + mozilla.slice(8, 9) + mozilla.slice(18, 19)
-// console.log(mdn)
+const mdn = `${mozilla.slice(0, 1)}${mozilla.slice(8, 9)}${mozilla.slice(18, 19)}`
+console.log(mdn)
 
-/* FEITO
+/*
 07 - Comente o console.log acima, e,
 
 - Exiba no console do browser a quantidade de caracteres que a constante "programmingLanguage" possui;
 */
 
-// console.log(programmingLanguage.length)
+console.log(programmingLanguage.length)
 
-/* FEITO
+/*
 08 - Comente o console.log acima, e,
 
 - Exiba no console a última letra da string que a "randomWord" (abaixo) armazena, mas com a condição a seguir;
@@ -78,11 +80,10 @@ const mdn = mozilla.slice(0,1) + mozilla.slice(8, 9) + mozilla.slice(18, 19)
 - Dica: utilize a propriedade ".length".
 */
 
-let randomWord = 'Churume'
-const lastLetter = randomWord[randomWord.length - 1]
-// console.log(lastLetter)
+let randomWord = 'Arongueijo'
+console.log(randomWord[randomWord.length - 1])
 
-/* FEITO
+/*
 09 - Comente o console.log acima, e,
 
 - Exiba, no console, a string que "summerMessage" (abaixo) armazena, mas com todas as letras minúsculas;
@@ -91,10 +92,9 @@ const lastLetter = randomWord[randomWord.length - 1]
 */
 
 const summerMessage = 'O VERÃO CHEGA NESTE FIM DE SEMANA'
-const lowerMessage = summerMessage.toLowerCase()
-// console.log(lowerMessage)
+console.log(summerMessage.toLowerCase())
 
-/* FEITO
+/*
 10 - Comente o console.log acima, e,
 
 - Exiba, no console, a string que "winterMessage" (abaixo) armazena, mas com todas as letras maiúsculas;
@@ -103,28 +103,25 @@ const lowerMessage = summerMessage.toLowerCase()
 */
 
 const winterMessage = 'o inverno está chegando'
-const upperMessage = winterMessage.toUpperCase()
-// console.log(upperMessage)
+console.log(winterMessage.toUpperCase())
 
-/* FEITO
+/*
 11 - Comente o console.log acima, e,
 
 - Exiba, no console, o index do caractere "v" da "winterMessage";
 */
 
-const winterMessageLetterV = winterMessage.indexOf('v')
-// console.log(winterMessageLetterV)
+console.log(winterMessage.indexOf('v'))
 
-/* FEITO
+/*
 12 - Comente o console.log acima, e,
 
 - Exiba, no console, o index da última ocorrência do caractere "n" da "winterMessage".
 */
 
-const lastN = winterMessage.lastIndexOf('n')
-// console.log(lastN)
+console.log(winterMessage.lastIndexOf('n'))
 
-/* FEITO
+/*
 13 - Comente o console.log acima, e,
 
 - Após a const "harryPotterAuthor" (abaixo), exiba no console a parte "J.K." da string "harryPotterAuthor";
@@ -132,10 +129,9 @@ const lastN = winterMessage.lastIndexOf('n')
 */
 
 const harryPotterAuthor = 'J.K. Rowling'
-const JK = harryPotterAuthor.slice(0, 4)
-// console.log(JK)
+console.log(harryPotterAuthor.slice(0,4))
 
-/* FEITO
+/*
 14 - Comente o console.log acima, e,
 
 - Após a const "bestMovie" (abaixo), declare uma constante "realBestMovie";
@@ -144,10 +140,10 @@ const JK = harryPotterAuthor.slice(0, 4)
 */
 
 const bestMovie = 'E o Oscar de melhor filme vai para: "La la land"!'
-const realBestMovie = bestMovie.replace('La la land', 'Moonlight')
-// console.log(realBestMovie)
+const realBestMovie = bestMovie.replace("La la land", "Moonlight")
+console.log(realBestMovie)
 
-/* FEITO
+/*
 15 - Comente o console.log acima, e,
 
 - Abaixo deste comentário, armazene o resto de 10 dividido por 3 em uma constante "reminder";
@@ -155,9 +151,9 @@ const realBestMovie = bestMovie.replace('La la land', 'Moonlight')
 */
 
 const reminder = 10 % 3
-// console.log(reminder)
+console.log(reminder)
 
-/* FEITO
+/*
 16 - Comente o console.log acima, e,
 
 - Abaixo da let "episodes", incremente o valor dela em 1;
@@ -166,10 +162,10 @@ const reminder = 10 % 3
 */
 
 let episodes = 6
-episodes ++
-// console.log(episodes)
+episodes++
+console.log(episodes)
 
-/* FEITO
+/*
 17 - Comente o console.log acima, e,
 
 - Decremente a let "episodes" em 1;
@@ -177,10 +173,10 @@ episodes ++
 - O valor exibido no console deve ser 6.
 */
 
-episodes --
-// console.log(episodes)
+episodes--
+console.log(episodes)
 
-/* FEITO
+/*
 18 - Comente o console.log acima, e,
 
 - Utilize o operador addition assignment para atualizar o valor da let "episodes" para 10;
@@ -188,10 +184,9 @@ episodes --
 */
 
 episodes += 4
-// console.log(episodes)
+console.log(episodes)
 
-
-/* FEITO
+/*
 19 - Comente o console.log acima, e,
 
 - Abaixo deste comentário, armazene a string 'O nº de episódios é: NUMERO_DE_EPISÓDIOS' em uma constante "allEpisodes";
@@ -199,10 +194,10 @@ episodes += 4
 - Exiba a "allEpisodes" no console.
 */
 
-const allEpisodes = `O nº de episodios é: ${episodes}`
-// console.log(allEpisodes)
+const allEpisodes = `O nº de episódios é: ${episodes}`
+console.log(allEpisodes)
 
-/* FEITO
+/*
 20 - Comente o console.log acima, e,
 
 - Descomente a const "bookMessage" e o console.log abaixo;
@@ -212,9 +207,9 @@ const allEpisodes = `O nº de episodios é: ${episodes}`
 */
 
 const bookMessage = '\'O Conto da Aia\' é um dos livros mais vendidos da década.'
-// console.log(bookMessage)
+console.log(bookMessage)
 
-/* FEITO
+/*
 21 - Comente o console.log acima (e a const bookMessage caso não tenha descoberto a resolução), e,
 
 - Após a const "name" (abaixo), declare uma let "newName";
@@ -225,11 +220,11 @@ const bookMessage = '\'O Conto da Aia\' é um dos livros mais vendidos da décad
 - Exiba a "newName" no console;
 */
 
-const nameW = 'walter white'
-let newName = (nameW.replace('w', 'W')).replace('w','W')
-// console.log(newName)
+const name = 'walter white'
+let newName = `${name.replace('w', 'W').replace('w', 'W')}`
+console.log(newName)
 
-/* FEITO
+/*
 22 - Comente o console.log acima, e,
 
 - Atribua à "newName" uma template string;
@@ -239,5 +234,3 @@ let newName = (nameW.replace('w', 'W')).replace('w','W')
 - Exiba a "newName" no console;
 */
 
-newName = `${nameW[0].toUpperCase()}${nameW.slice(1,6)} ${nameW[7].toUpperCase()}${nameW.slice(8)}`
-console.log(newName)

@@ -11,7 +11,6 @@
   
   - Todos os filmes e diretores do array devem constar na lista.
 */
-console.log('Exercício 01\n')
 
 const best2019Movies = [
   { title: 'Parasita', directedBy: 'Bong Joon-ho' },
@@ -27,20 +26,13 @@ const best2019Movies = [
   { title: 'Varda por Agnès', directedBy: 'Agnès Varda' },
   { title: 'A Vida Invisível', directedBy: 'Karim Aïnouz' }
 ]
+let movieList = 'Segundo o site Omelete, os melhores filmes de 2019 são:'
 
-let movies2019 = 'Segundo o site Omelete, os melhores filmes de 2019 são:'
+best2019Movies.forEach(movie => {
+  movieList += `\n - ${movie.title}, dirigido por ${movie.directedBy}`
+})
 
-const generateMovieMessge = movie => {
-  const movieName = movie.title
-  const movieDirector = movie.directedBy
-
-  movies2019 += `\n -${movieName}, dirigido por ${movieDirector}`
-}
-
-best2019Movies.forEach(generateMovieMessge)
-
-console.log(movies2019)
-console.log('----------------------')
+console.log(movieList)
 
 /*
   02
@@ -55,7 +47,6 @@ console.log('----------------------')
   
   - As 4 linhas da mensagem, podem ser exibidas separadamente.
 */
-console.log('Exercício 02\n')
 
 const youtubeUser = {
   name: 'Roger Melo',
@@ -76,31 +67,26 @@ const youtubeUser = {
     },
     country: 'Brasil'
   },
-  showLastVideos () {
-    let lastVideos = `Vídeos recentes de ${this.name}:`
+  showRecentVideos: () => {
+    let recentVideosList = `Vídeos recentes de Roger Melo:`
 
-    this.videos.recentVideos.forEach(video => {
-      const videotitle = video.title
-      lastVideos += `\n${videotitle}`
+    youtubeUser.videos.recentVideos.forEach(video => {
+      recentVideosList += `\n${video.title}`
     })
 
-    console.log(lastVideos)
+    return recentVideosList
   }
 }
 
-youtubeUser.showLastVideos()
-
-console.log('----------------------')
+console.log(youtubeUser.showRecentVideos())
 
 /*
   03
 
   - Exiba o valor do PI no console.
 */
-console.log('Exercício 03\n')
 
 console.log(Math.PI)
-console.log('----------------------')
 
 /*
   04
@@ -108,13 +94,9 @@ console.log('----------------------')
   - Arredonde o número que a constante abaixo armazena para 9 e exiba-o no  
     console.
 */
-console.log('Exercício 04\n')
 
 const firstNumber = 8.3
-const firstNumberRounded = Math.ceil(firstNumber)
-
-console.log(firstNumberRounded)
-console.log('----------------------')
+console.log(Math.ceil(firstNumber))
 
 /*
   05
@@ -122,13 +104,9 @@ console.log('----------------------')
   - Arredonde o número que a constante abaixo armazena para 4, utilizando a  
     forma padrão, e exiba-o no console.
 */
-console.log('Exercício 05\n')
 
 const secondNumber = 3.5
-const secondNumberRounded = Math.round(secondNumber)
-
-console.log(secondNumberRounded)
-console.log('----------------------')
+console.log(Math.round(secondNumber))
 
 /*
   06
@@ -136,26 +114,18 @@ console.log('----------------------')
   - Arredonde o número que a constante abaixo armazena para 8 e exiba-o no  
     console.
 */
-console.log('Exercício 06\n')
 
 const thirdNumber = 8.9
-const thirdNumberRounded = Math.floor(thirdNumber)
-
-console.log(thirdNumberRounded)
-console.log('----------------------')
+console.log(Math.floor(thirdNumber))
 
 /*
   07
 
   - Exiba no console o número abaixo com a parte decimal removida.
 */
-console.log('Exercício 07\n')
 
 const fourthNumber = 5.5
-const fourthNumberRounded = Math.trunc(fourthNumber)
-
-console.log(fourthNumberRounded)
-console.log('----------------------')
+console.log(Math.trunc(fourthNumber))
 
 /*
   08
@@ -163,10 +133,5 @@ console.log('----------------------')
   - A cada vez que o index.html for carregado, exiba no console um número  
     aleatório de 0 à 10, incluindo 0 e 10.
 */
-console.log('Exercício 08\n')
 
-const randomDecimalNumber = Math.random()
-const randomNumber = Math.round(randomDecimalNumber * 10)
-
-console.log(randomNumber)
-console.log('----------------------')
+console.log(Math.round(Math.random() * 10))
