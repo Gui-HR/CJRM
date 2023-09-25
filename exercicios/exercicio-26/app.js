@@ -6,6 +6,20 @@
   - Não utilize a date-fns.
 */
 
+const present = new Date()
+
+const addZero = date => String(date).length == 1 ? `0${date}` : date
+
+const formatDate = date => {
+  const dayOfMonth = addZero(date.getDate())
+  const month = addZero(date.getMonth() + 1)
+  const year = date.getFullYear()
+
+  return `${dayOfMonth}/${month}/${year}`
+}
+
+console.log(formatDate(present))
+
 /*
   02
 
@@ -14,6 +28,43 @@
   - Não utilize a date-fns.
 */
 
+const daysOfWeek = [
+  'doming',
+  'segunda',
+  'terça',
+  'quarta',
+  'quinta',
+  'sexta', 
+  'sabado'
+]
+
+const months = [
+  'janeiro', 
+  'fevereiro', 
+  'março', 
+  'abril', 
+  'maio', 
+  'junho', 
+  'julho', 
+  'agosto', 
+  'setembro', 
+  'outubro', 
+  'novembro', 
+  'dezembro'
+]
+
+const formatFullDate = date => {
+  const dayOfMonth = date.getDate()
+  const dayOfWeek = daysOfWeek[date.getDay()]
+  const month = months[date.getMonth()]
+  const year = date.getFullYear()
+  const time = date.toTimeString().slice(0, 5)
+
+  return `${time} - ${dayOfWeek}, ${dayOfMonth} de ${month} de ${year}`
+}
+
+console.log(formatFullDate(present))
+ 
 /*
   03
 
@@ -23,6 +74,9 @@
 */
 
 const user = { id: 42, isVerified: true }
+const { id, isVerified } = user
+
+console.log(id, isVerified)
 
 /*
   04
@@ -36,6 +90,11 @@ const user = { id: 42, isVerified: true }
 
 const robotA = { name: 'Bender' }
 const robotB = { name: 'HAL 9000' }
+const { name: nameA } = robotA
+const { name: nameB } = robotB
+
+console.log(nameA, nameB)
+
 
 /*
   05
@@ -49,6 +108,9 @@ const robotB = { name: 'HAL 9000' }
 const a = 'a'
 const b = 'b'
 const c = 'c'
+const abc = {a, b, c}
+
+console.log(abc)
 
 /*
   06
@@ -56,24 +118,34 @@ const c = 'c'
   - Refatore o código abaixo.
 */
 
-const useDataSomewhereElse = value => {
-  console.log(value)
-}
+// const useDataSomewhereElse = value => {
+//   console.log(value)
+// }
 
-const updateSomething = (data = {}) => {
-  const target = data.target
-  const property = data.property
-  let willChange = data.willChange
+// const updateSomething = (data = {}) => {
+//   const target = data.target
+//   const property = data.property
+//   let willChange = data.willChange
 
-  if (willChange === 'valor indesejado') {
-    willChange = 'valor desejado'
-  }
+//   if (willChange === 'valor indesejado') {
+//     willChange = 'valor desejado'
+//   }
 
-  useDataSomewhereElse({
-    target: target,
-    property: property,
-    willChange: willChange
-  })
+//   useDataSomewhereElse({
+//     target: target,
+//     property: property,
+//     willChange: willChange
+//   })
+// }
+
+// updateSomething({ target: '1', property: '2', willChange: 'valor indesejado' })
+
+const updateSomething = ({ target, property, willChange}) => {
+  willChange === 'valor indesejado' ? willChange = 'valor desejado' : willChange
+
+  const someThing = { target, property, willChange }
+
+  console.log(someThing)
 }
 
 updateSomething({ target: '1', property: '2', willChange: 'valor indesejado' })
@@ -85,21 +157,21 @@ updateSomething({ target: '1', property: '2', willChange: 'valor indesejado' })
     passada. Refatore-o.
 */
 
+const getClockHTML = (hours, minutes, seconds) => `
+  <span>${hours}</span> :
+  <span>${minutes}</span> :
+  <span>${seconds}</span>
+  `
+
 const clockContainer = document.querySelector('.clock-container')
 
 const updateClock = () => {
   const present = new Date()
-  const hours = present.getHours()
-  const minutes = present.getMinutes()
-  const seconds = present.getSeconds()
+  const hours = addZero(present.getHours())
+  const minutes = addZero(present.getMinutes())
+  const seconds = addZero(present.getSeconds())
 
-  const clockHTML = `
-    <span>${String(hours).length === 1 ? `0${hours}` : hours}</span> :
-    <span>${String(minutes).length === 1 ? `0${minutes}` : minutes}</span> :
-    <span>${String(seconds).length === 1 ? `0${seconds}` : seconds}</span>
-  `
-
-  clockContainer.innerHTML = clockHTML
+  clockContainer.innerHTML = getClockHTML(hours, minutes, seconds)
 }
 
 setInterval(updateClock, 1000)
