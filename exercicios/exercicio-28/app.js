@@ -16,6 +16,23 @@
   - Teste também a verificação do item acima.
 */
 
+const request = new XMLHttpRequest()
+
+request.addEventListener('readystatechange', () => {
+  const requestSucceeded = request.readyState === 4 && request.status === 200
+  if(requestSucceeded) {
+    // console.log(request.response)
+    return
+  }
+
+  if(request.readyState === 4) {
+    console.log('Não foi possível obter os dados do pokémon')
+  }
+})
+
+request.open('GET', 'https://pokeapi.co/api/v2/pokemon/pikachu')
+request.send()
+
 /*
   02
 
@@ -31,6 +48,17 @@
     - Quantos metros você caminhou (number iniciado em 0).
 */
 
+let me = {
+  name: 'Guilherme',
+  secondName: 'Huerta',
+  sex: 'Masculino',
+  age: 19,
+  height: 1.76,
+  weight: 58,
+  walking: false,
+  meter: 0
+}
+
 /*
   03
 
@@ -39,6 +67,14 @@
   - A cada vez que o método é invocado, 1 deve ser somado à idade atual;
   - Após criar o método, adicione 5 anos à idade do objeto.
 */
+
+me.getOlder = () => me.age++
+
+for(let i = 0; i < 5; i++) {
+  me.getOlder()
+}
+
+console.log(me.age)
 
 /*
   04
@@ -50,6 +86,14 @@
   - Após criar o método, faça a pessoa caminhar alguns metros, invocando o 
     método 4x, com diferentes metragens passadas por parâmetro.
 */
+
+me.distanceTraveld = meters => {
+  me.meter += meters
+  me.walking = true
+}
+
+const walkedMeters = [200, 30, 5, 10].forEach(meters => me.distanceTraveld(meters)) 
+console.log(me.meter, me.walking)
 
 /*
   05
@@ -68,6 +112,20 @@
       "metro", no singular.
 */
 
+const getPluralOrSingular = (quantity, singular, plural) => quantity === 1 ? singular : plural
+
+me.getInfoMessage = () => {
+  const { name, age, height, weight, meter } = me
+  const gender = me.sex === 'masculino' ? 'o' : 'a'
+  const yearsPluralOrSingular = getPluralOrSingular(me.age, 'ano', 'anos')
+  const walkedMetersPluralOrSingular = getPluralOrSingular(me.meter, 'metro', 'metros')
+  const heigthMetersPluralOrSingular = getPluralOrSingular(me.height, 'metro', 'metros')
+
+  return `Oi. Eu sou ${gender} ${name}, tenho ${age} ${yearsPluralOrSingular}, ${height} ${heigthMetersPluralOrSingular} de altura, peso ${weight} quilos e, só hoje, eu já caminhei ${meter} ${walkedMetersPluralOrSingular}.`
+}
+
+console.log(me.getInfoMessage())
+
 /*
   06
 
@@ -79,6 +137,16 @@
     valor truthy;
     - Faça isso até que 7 valores truthy sejam passados.
 */
+
+const falsyValues = [false, 0, '', null, undefined, NaN]
+const truthyValues = [1, 'alo', true, [], me, () => {}, me.name]
+
+const isTruthy = value => Boolean(value)
+const logFalsyValue = falsyValue => console.log(isTruthy(falsyValue))
+const logTrutyValue = truthyValue => console.log(isTruthy(truthyValue))
+
+falsyValues.forEach(logFalsyValue)
+truthyValues.forEach(logTrutyValue)
 
 /*
   07
@@ -98,3 +166,27 @@
 
   Dica: propriedades de objetos podem ser declaradas como strings.
 */
+
+const getBook = bookName => {
+  const myBooks = {
+    'Rinha de Galo': {
+      pages: 37,
+      author: 'Ricado Bonifacio',
+      publisher: 'Manacá'
+    },
+    'Como Subir de Elo': {
+      pages: 386,
+      author: 'Yoda',
+      publisher: 'Riot'
+    },
+    'Sonegando Impostos': {
+      pages: 104,
+      author: 'Felps',
+      publisher: 'Pondera'
+    }
+  }
+
+  return myBooks[bookName] || myBooks
+}
+
+console.log(getBook('Sonegando Impostos'))

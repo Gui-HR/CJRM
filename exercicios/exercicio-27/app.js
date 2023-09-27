@@ -9,7 +9,9 @@ console.log('Linha 2')
 console.log('Linha 3')
 console.log('Linha 4')
 
-
+setTimeout(() => {
+  console.log('Depois foi')
+}, 2000)
 
 console.log('Linha 5')
 console.log('Linha 6')
@@ -27,7 +29,9 @@ function logGreeting (name) {
   console.log(`olá, ${name}`)
 }
 
-// x(logGreeting)
+const x = func => func('Jorge')
+
+x(logGreeting)
 
 /*
   03
@@ -36,7 +40,8 @@ function logGreeting (name) {
 */
 
 const numbers = [3, 4, 10, 20]
-const lesserThanFive = numbers.filter(num => num < 5)
+const getLesserThanFive = num => num < 5
+const lesserThanFive = numbers.filter(getLesserThanFive)
 
 console.log(lesserThanFive)
 
@@ -46,13 +51,18 @@ console.log(lesserThanFive)
   - Refatore o código abaixo.
 */
 
+// const prices = [12, 19, 7, 209]
+// let totalPrice = 0
+
+// for (let i = 0; i < prices.length; i++) {
+//   totalPrice += prices[i]
+// }
+
+// console.log(`Preço total: ${totalPrice}`)
+
 const prices = [12, 19, 7, 209]
-let totalPrice = 0
-
-for (let i = 0; i < prices.length; i++) {
-  totalPrice += prices[i]
-}
-
+const sumPrices = (acc, price) => price + acc
+const totalPrice = prices.reduce(sumPrices, 0)
 console.log(`Preço total: ${totalPrice}`)
 
 /*
@@ -64,6 +74,9 @@ console.log(`Preço total: ${totalPrice}`)
 */
 
 let car = { color: 'amarelo' }
+let secondCar = car
+secondCar.color = 'azul'
+console.log(car.color)
 
 /*
   06
@@ -74,6 +87,14 @@ let car = { color: 'amarelo' }
   - Se todos os argumentos forem passados, retorne a string 'A função foi 
     invocada com 3 argumentos'.
 */
+
+const WTFunc = (v1, v2, v3) => {
+  const someValueIsUndefined = [v1, v2 ,v3].some(value => value === undefined)
+  return someValueIsUndefined ? 'A função deve ser invocada com 3 argumentos'
+    : 'A função foi invocada com 3 argumentos'
+}
+
+console.log(WTFunc(1,2,3))
 
 /*
   07
@@ -99,5 +120,35 @@ let car = { color: 'amarelo' }
 
 let booksBox = {
   spaces: 5,
-  booksIn: 0
+  booksIn: 0,
 }
+
+const getPluralOrSingular = (quantity, singular, plural) => quantity === 1 ? singular : plural
+
+const getAvailableSpacesMessage = spacesRemaining => {
+  const bookOrBooks = getPluralOrSingular(spacesRemaining, 'livro', 'livros')
+  const fitPluralOrSingular = getPluralOrSingular(spacesRemaining, 'cabe', 'cabem')
+  return `Só ${fitPluralOrSingular} mais ${spacesRemaining} ${bookOrBooks}`
+}
+
+booksBox.addMoreBooks = (howManyBooks) => {
+  const spacesRemaining = booksBox.spaces - booksBox.booksIn
+  const isBoxFilled = spacesRemaining === 0
+  const boxSpacesAreNotEnough = spacesRemaining ? spacesRemaining < howManyBooks : false
+
+  if(isBoxFilled) {
+    return "A caixa já está cheia"
+  }
+
+  if(boxSpacesAreNotEnough) {
+    return getAvailableSpacesMessage(spacesRemaining)
+  }
+
+  booksBox.booksIn += howManyBooks
+  const bookOrBooks = getPluralOrSingular(booksBox.booksIn, 'livro', 'livros')
+  return `Já há ${booksBox.booksIn} ${bookOrBooks} na caixa`
+}
+
+console.log(booksBox.addMoreBooks(2))
+console.log(booksBox.addMoreBooks(3))
+console.log(booksBox.addMoreBooks(4))
