@@ -8,6 +8,30 @@
     dados dos usuários."
 */
 
+const getData = endPoint => {new Promise((resolve, reject) => {
+  const request = new XMLHttpRequest()
+
+  request.addEventListener('readystatechange', () => {
+    const isRequestOk = request.readyState === 4 && request.status === 200
+    const isRequestNotOk = request.readyState === 4
+
+    if(isRequestOk) {
+      const data = JSON.parse(request.response)
+      resolve(data)
+    }
+
+    if(isRequestNotOk) {
+      const errorMessage = 'Não foi possível obter os dados dos usuários.'
+      reject(errorMessage)
+    }
+  })
+
+  request.open('GET', endPoint)
+  request.send()
+})}
+
+getData('https://jsonplaceholder.typicode.com/users')
+
 /*
   02
 
@@ -22,6 +46,43 @@
   - Se o operador não for válido, retorne a mensagem "Operação inválida."
 */
 
+// const calculator = operator => {
+//   const calculation = {
+//     '+': (number1, number2) => `Resultado da operação: ${number1} + ${number2} = ${number1 + number2}.`,
+//     '-': (number1, number2) => `Resultado da operação: ${number1} - ${number2} = ${number1 - number2}.`,
+//     '*': (number1, number2) => `Resultado da operação: ${number1} x ${number2} = ${number1 * number2}.`,
+//     '/': (number1, number2) => `Resultado da operação: ${number1} / ${number2} = ${number1 / number2}.`,
+//     '%': (number1, number2) => `Resultado da operação: ${number1} % ${number2} = ${number1 % number2}.`,
+//   }
+
+//   return calculation[operator] || "Operação inválida."
+// }
+
+const getCalculationMessage = (number1, operator, number2, operation) => 
+  `Resultado da operação: ${number1} ${operator} ${number2} = ${operation}.`
+
+const calculator = operator => (number1, number2) => {
+  const calculation = {
+    '+': getCalculationMessage(number1, operator, number2, number1 + number2),
+    '*': getCalculationMessage(number1, operator, number2, number1 * number2),
+    '/': getCalculationMessage(number1, operator, number2, number1 / number2),
+    '%': getCalculationMessage(number1, operator, number2, number1 % number2)
+  }
+
+  return calculation[operator] || "Operação inválida."
+}
+
+const sum = calculator('+')
+const subtraction = calculator('-')
+const multiplication = calculator('*')
+const division = calculator('/')
+const module = calculator('%')
+console.log(sum(1,2))
+console.log(subtraction(3,2))
+console.log(multiplication(3,7))
+console.log(division(9,3))
+console.log(module(5,3))
+
 /*
   03
 
@@ -35,6 +96,13 @@
   - Crie um novo array chamado `newSul`, que recebe somente os estados do sul,
     pegando do array `brasil`. Não remova esses itens de `brasil`.
 */
+
+const sul = ['Paraná', 'Santa Catarina', 'Rio Grande do Sul']
+const sudeste = ['São Paulo', 'Minas Gerais', 'Rio de Janeiro', 'Espirito Santo']
+const brasil = sul.concat(sudeste)
+brasil.unshift('Amazonas', 'Acre', 'Pará')
+console.log(brasil.shift())
+const newSul = brasil.filter(state => sul.includes(state))
 
 /*
   04
@@ -55,6 +123,30 @@
     every.
 */
 
+const nordeste = [
+  'Alagoas', 
+  'Bahia', 
+  'Ceará', 
+  'Maranhão', 
+  'Paraíba', 
+  'Pernambuco', 
+  'Piauí', 
+  'Rio Grande do Norte', 
+  'Sergipe'
+]
+
+const addIntoBrasil = state => brasil.push(state)
+const convertStateInObject = (state, index) => ({ id: index, estado: state })
+const lenthBiggerThen7 = state => state.length > 7
+
+const newSudeste = brasil.splice(5, 4)
+nordeste.forEach(addIntoBrasil)
+const newBrasil = brasil.map(convertStateInObject)
+
+console.log(brasil.every(lenthBiggerThen7) 
+  ? 'Sim, todos os estados tem mais de 7 letras.'
+  : 'Nem todos os estados tem mais de 7 letras.' )
+
 /*
   05
 
@@ -68,3 +160,16 @@
   - Filtre o array criado acima, retornando somente os estados que tiverem ID 
     par. Atribua este novo array à uma constante.
 */
+
+const cearaExist = brasil.includes('Ceará') 
+console.log(cearaExist ? "Ceará está incluído." : "Ceará não foi incluído =/")
+
+const incrementStates = ({ id, estado }) => ({id: ++id, estado:`${estado} pertence ao Brasil.`})
+const evenIdNumbers = state => !(state.id % 2)
+
+const newBrasilStatesIncremented = newBrasil.map(incrementStates)
+const brasilStatesEvenId = newBrasilStatesIncremented.filter(evenIdNumbers)
+
+console.log(newBrasilStatesIncremented)
+console.log(newBrasil)
+console.log(brasilStatesEvenId)
