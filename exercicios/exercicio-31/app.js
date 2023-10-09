@@ -8,6 +8,16 @@
     do GitHub.
 */
 
+// const getGitHubPerfil = async userName => {
+//   const response = await fetch(`https://api.github.com/users/${userName}`)
+//   return await response.json()
+// }
+
+// const showGitHubPerfil = async userName => 
+//   console.log(await getGitHubPerfil(userName))
+
+// showGitHubPerfil('gui-hr')
+
 /*
   02
 
@@ -17,6 +27,10 @@
 */
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const getDivisibleby2or3 = arrayNumbers => 
+  arrayNumbers.filter(number => number % 2 === 0 || number % 3 === 0)
+
+console.log(getDivisibleby2or3(numbers))
 
 /*
   03
@@ -31,6 +45,11 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     - Natália => "PNaPtáPlia";
     - Rafaela => "PRaPfaPePla".
 */
+
+const myNameSyllables = ['Gui', 'lher', 'me']
+const getNameInPLanguage = (name) => 
+  name.reduce((acc, syllable) => acc += `P${syllable}`, '')
+console.log(getNameInPLanguage(myNameSyllables))
 
 /*
   04
@@ -47,6 +66,16 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   Dica: pesquise pelo método split.
 */
 
+const firstName = 'Guilherme'
+
+const showLetterPosition = (letter, index) => 
+  console.log(`"${letter}" é a ${++index}ª letra do meu nome.`)
+
+const getLetters = name => {
+  name.split('').forEach(showLetterPosition)
+}
+getLetters(firstName)
+
 /*
   05
 
@@ -59,6 +88,14 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   Dica: pesquise pelo método Object.keys().
 */
+
+const meInfo = {
+  name: 'Guilherme',
+  lastName: 'Rocha',
+  age: 19
+}
+
+console.log(Object.keys(meInfo))
 
 /*
   06
@@ -74,6 +111,18 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 */
 
 const scores = [100, 90, 85, 100, 60, 85, 100, 90, 55, 75, 60]
+
+// const frequency = (array, fetchedValue) => 
+//   array.filter(value => value === fetchedValue).length
+
+const frequency = (array, fetchedValue) => 
+  array.reduce((acc, value) => value === fetchedValue ? ++acc : acc, 0)
+
+console.log(frequency(scores, 100))
+console.log(frequency(scores, 90))
+console.log(frequency(scores, 55))
+console.log(frequency(scores, 2))
+
 
 /*
   07
@@ -98,3 +147,19 @@ const scores = [100, 90, 85, 100, 60, 85, 100, 90, 55, 75, 60]
   Dica: lembre-se que o método filter inclui o item em questão no novo array 
   que está sendo gerado **apenas** se a função retorna um valor truthy.
 */
+
+const filterCopy = (array, func) => {
+  let newArray = []
+
+  array.forEach((item, index, array) => {
+    func(item, index, array) ? newArray.push(item) : ''
+  })
+
+  return newArray
+}
+
+console.log(filterCopy([1, 2, 3], item => item))
+console.log(filterCopy([0, 1, 2], item => item))
+console.log(filterCopy([1, 2, 3], item => item < 2))
+console.log(filterCopy([1, 2, 3, 5], (item, index) => item === index + 1))
+console.log(filterCopy([1, 2, 3, 2, 1, 5], (item, index, array) => index === array.indexOf(item)))
