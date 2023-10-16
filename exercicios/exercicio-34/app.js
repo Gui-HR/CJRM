@@ -12,21 +12,39 @@
     versão deve fazer o mesmo que a função anterior faz, mas de forma diferente.
 */
 
+const reverse2 = string => string.split('').reverse().join('')
+
+const reverse = string => {
+  let reversedArray = []
+  for(let i = 0; i < string.length; i++) {
+    reversedArray.unshift(string[i])
+  }
+  
+  return reversedArray.join('')
+}
+
+console.log(reverse('Guilherme'))
+console.log(reverse2('Guilherme'))
+
 /*
   02
   
   - Descubra o que o código abaixo está fazendo e refatore-o.
 */
 
+// const numbers = [5, 20, 7, 32, 47, 15, 83, 91, 27, 33]
+// let foundNumber = false
+
+// numbers.forEach(number => {
+//   if (number === 15) {
+//     foundNumber = true
+//   }
+// })
+
+// console.log(foundNumber)
+
 const numbers = [5, 20, 7, 32, 47, 15, 83, 91, 27, 33]
-let foundNumber = false
-
-numbers.forEach(number => {
-  if (number === 15) {
-    foundNumber = true
-  }
-})
-
+const foundNumber = numbers.includes(15)
 console.log(foundNumber)
 
 /*
