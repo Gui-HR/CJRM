@@ -5,6 +5,18 @@
     e retorna o valor da key parseado para objeto javascript.
 */
 
+const pokemons = [
+  {name: 'Zoroark', dexNumber: 571, gen: 5},
+  {name: 'Froakie', dexNumber: 656, gen: 6},
+  {name: 'Oshawott', dexNumber: 501, gen: 5}
+]
+
+localStorage.setItem('Pokemons', JSON.stringify(pokemons))
+
+const getAndParseItem = keyName => JSON.parse(localStorage.getItem(keyName))
+
+console.log(getAndParseItem('Pokemons'))
+
 /*
   02
 
@@ -21,7 +33,7 @@
 const input = document.querySelector('[data-js="input"]')
 
 input.addEventListener('input', event => {
-  console.log(event.target.value)
+  console.log(event.target.valueAsNumber)
 })
 
 /*
@@ -59,8 +71,11 @@ function addTen (num) {
   return num + 10
 }
 
-// console.log(combineOperations(0, [add100, divByFive, multiplyByThree]))
-// console.log(combineOperations(0, [divByFive, multiplyFive, addTen]))
+const combineOperations = (number, funcArray) => 
+  funcArray.reduce((acc, func) => acc = func(acc), number)
+
+console.log(combineOperations(0, [add100, divByFive, multiplyByThree]))
+console.log(combineOperations(0, [divByFive, multiplyFive, addTen]))
 
 /*
   04
@@ -101,7 +116,9 @@ const searchAlbum = {
   genre: 'Rock'
 }
 
-if (albums.includes(searchAlbum)) {
+const searchAlbumExist = albums.some(album => album.id === searchAlbum.id)
+
+if (searchAlbumExist) {
   console.log(`${JSON.stringify(searchAlbum)} existe no array albums.`)
 }
 
@@ -122,6 +139,12 @@ const obj = {
   prop8: { a: 'x', b: 'y' },
 }
 
+const objAsJson = JSON.stringify(obj, null, 2)
+
+const objCopy = JSON.parse(objAsJson)
+
+console.log(objCopy)
+
 /*
   06
 
@@ -132,6 +155,23 @@ const obj = {
 
   Dica: pesquise por Object.entries.
 */
+
+const attributes = {
+  class: 'quadrado',
+  id: 'n-sei',
+  'data-js': 'teste'
+}
+
+const createHtmlElement = (element, attributes) => {
+  const createdElement = document.createElement(element)
+  const att = Object.entries(attributes)
+
+  att.forEach(([ attributeName, value ]) => createdElement.setAttribute(attributeName, value))
+
+  return createdElement
+}
+
+createHtmlElement('div', attributes)
 
 /*
   07

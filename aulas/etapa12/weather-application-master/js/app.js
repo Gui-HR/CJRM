@@ -6,6 +6,11 @@ const cityCardContainer = document.querySelector('[data-js="city-card"')
 const timeImg = document.querySelector('[data-js="time"]')
 const timeIconContainer = document.querySelector('[data-js="time-icon"]')
 
+const showCityCard = () => {
+    if(cityCardContainer.classList.contains('d-none')) { 
+        cityCardContainer.classList.remove('d-none')
+    }
+}
 
 const insertInfo = async searchedCityName => {
     const [ { Key: cityKey, LocalizedName: cityName } ] = await getCityData(searchedCityName)
@@ -19,20 +24,22 @@ const insertInfo = async searchedCityName => {
     cityTemperatureContainer.textContent = cityTemperature 
     timeIconContainer.innerHTML = timeIcon
     timeImg.src = IsDayTime ? 'src/day.svg' : 'src/night.svg'
-} 
 
-const showCityCard = () => {
-    if(cityCardContainer.classList.contains('d-none')) { 
-        cityCardContainer.classList.remove('d-none')
-    }
-}
+    showCityCard()
+} 
 
 form.addEventListener('submit', event => {
     event.preventDefault()
 
-    const inputValue = event.target.city.value 
+    const inputValue = event.target.city.value
+
+    localStorage.setItem('citySearched', inputValue)
     
     insertInfo(inputValue)
-    showCityCard()
     event.target.reset()
+})
+
+window.addEventListener('load', () => {
+    const citySearched = localStorage.getItem('citySearched')
+    insertInfo(citySearched)
 })
